@@ -117,6 +117,7 @@ source $ZSH/oh-my-zsh.sh
 # alias py="python"
 alias nv="watch -n 1 -d nvidia-smi"
 alias zshc="code ~/.zshrc"
+alias opencodec="code ~/.config/opencode/opencode.json"
 alias tokens="cat ~/Code/github.tokens"
 alias vps="cd ~/keys"
 
