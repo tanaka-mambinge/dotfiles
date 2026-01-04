@@ -114,9 +114,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# alias py="python"
+alias py="python3.12"
 alias nv="watch -n 1 -d nvidia-smi"
 alias zshc="code ~/.zshrc"
+alias dotfilesc="code ~/.dotfiles"
 alias opencodec="code ~/.config/opencode/opencode.json"
 alias tokens="cat ~/Code/github.tokens"
 alias vps="cd ~/keys"
@@ -129,10 +130,6 @@ gwork() {
 gpersonal() {
     git config user.name "tanaka-mambinge"
     git config user.email "tmambingez@gmail.com"
-}
-
-py() {
-  command python "$@"
 }
 
 jp() {
