@@ -6,8 +6,13 @@
       "url": "https://mcp.context7.com/mcp"
     },
     "browser": {
+      "enabled": false,
       "type": "local",
       "command": ["npx", "@browsermcp/mcp@latest"]
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "chrome-devtools-mcp@latest"]
     }
   }
 }
