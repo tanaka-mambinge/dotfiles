@@ -19,5 +19,12 @@
       "type": "remote",
       "url": "https://mcp.mermaid.ai/mcp"
     }
+  },
+  "permission": {
+    "bash": {
+      "npm run build": "deny",
+      "npm run dev": "deny",
+      "fastapi *": "deny"
+    }
   }
 }
