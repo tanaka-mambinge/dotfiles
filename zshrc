@@ -116,13 +116,46 @@ source $ZSH/oh-my-zsh.sh
 
 alias py="python3.12"
 alias nv="watch -n 1 -d nvidia-smi"
-alias zshc="code ~/.zshrc"
 alias dotfilesc="code ~/.dotfiles"
-alias opencodec="code ~/.config/opencode/opencode.json"
 alias agentsc="code ~/.config/opencode/agent"
 alias skillsc="code ~/.config/opencode/skill"
 alias tokens="cat ~/Code/github.tokens"
 alias vps="cd ~/keys"
+
+opencode_reset() {
+  PKG="opencode-ai"
+
+  command -v npm >/dev/null || { echo "npm not found"; return 1; }
+
+  echo "▶ Removing $PKG (npm)"
+  npm uninstall -g "$PKG" >/dev/null 2>&1 || true
+
+  GLOBAL_ROOT="$(npm root -g)"
+  PKG_PATH="$GLOBAL_ROOT/$PKG"
+
+  echo "▶ Force-cleaning leftovers"
+  rm -rf "$PKG_PATH"
+  find "$GLOBAL_ROOT" -maxdepth 1 -type d -name ".${PKG}-*" -exec rm -rf {} +
+
+  echo "▶ Cleaning npm cache"
+  npm cache clean --force >/dev/null 2>&1
+
+  echo "▶ Reinstalling $PKG"
+  npm i -g "$PKG" || {
+    echo "✖ Install failed"
+    return 1
+  }
+
+  echo "▶ Verifying"
+  if command -v opencode >/dev/null; then
+    echo "✔ opencode fixed"
+  else
+    echo "✖ opencode still missing from PATH"
+    echo "Run: nvm use --default"
+    return 1
+  fi
+}
+
 
 gwork() {
     git config user.name "tmambinge"

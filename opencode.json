@@ -24,7 +24,8 @@
     "bash": {
       "npm run build": "deny",
       "npm run dev": "deny",
-      "fastapi *": "deny"
+      "fastapi *": "deny",
+      "git commit *": "deny"
     }
   }
 }
