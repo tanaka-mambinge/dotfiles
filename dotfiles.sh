@@ -25,6 +25,8 @@ ln -sf "$DOTFILES_DIR/zshrc" "$HOME/.zshrc"
 mkdir -p "$HOME/.config/opencode"
 ln -sf "$DOTFILES_DIR/opencode.json" \
        "$HOME/.config/opencode/opencode.json"
+ln -sf "$DOTFILES_DIR/AGENTS.md" \
+       "$HOME/.config/opencode/AGENTS.md"
 
 echo "==> Done"
 echo "Restart your shell or run: source ~/.zshrc"

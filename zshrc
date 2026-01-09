@@ -122,7 +122,7 @@ alias skillsc="code ~/.config/opencode/skill"
 alias tokens="cat ~/Code/github.tokens"
 alias vps="cd ~/keys"
 
-opencode_reset() {
+reset_opencode() {
   PKG="opencode-ai"
 
   command -v npm >/dev/null || { echo "npm not found"; return 1; }
