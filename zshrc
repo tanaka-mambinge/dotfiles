@@ -283,3 +283,9 @@ unset __conda_setup
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/home/tanaka/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/tanaka/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# bun completions
+[ -s "/home/t12e/.bun/_bun" ] && source "/home/t12e/.bun/_bun"
+
+# bun
+export PATH="$HOME/.bun/bin:$PATH"
