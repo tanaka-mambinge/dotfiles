@@ -1,42 +1,79 @@
-# Instructions for Question Tool Usage
+# Question Tool Usage Guidelines
 
-## When to Use the Question Tool
+## Core Principle
 
-During planning and task clarification, **always use the question tool** instead of asking open-ended questions that require manual typing.
+Use the question tool with multiple choice options instead of open-ended questions. Users prefer clicking over typing.
 
-## Benefits
-- Provides multiple choice options for quick selection
-- Reduces manual typing burden
-- Speeds up the planning process
-- Always includes a final option for custom input when needed
+## Question Rounds
 
-## Guidelines
+You have a **maximum of 3 question rounds** to gather all necessary information. Each round should:
 
-1. **Default to multiple choice**: When you need information from the user, present 3-5 relevant options
-2. **Always include "Other (let me type)"**: The last option should always allow for custom input
-3. **Use for all planning questions**: Project structure, tech stack, preferences, ambiguous requirements, etc.
-4. **Format clearly**: Make options concise and distinct
+- Ask multiple related questions efficiently
+- Anticipate details the user may not have considered
+- Include clarifying questions for ambiguous requirements
+- Gather architectural, technical, and implementation preferences
 
-## Example Usage
+Plan your questions strategically across the rounds to collect comprehensive information without back-and-forth inefficiency.
 
-**Good:**
+## Question Format
+
+### Always Structure Questions As
+
 ```
-Question: What database would you like to use?
+Question: [Clear, concise question]
 Options:
-1. PostgreSQL
-2. MongoDB
-3. SQLite
-4. MySQL
+1. [Option 1]
+2. [Option 2]
+3. [Option 3]
+4. [Option 4]
 5. Other (let me specify)
 ```
 
-**Avoid:**
+### Key Rules
+
+- **3-5 options per question** - Enough choice without overwhelming
+- **Last option is always "Other"** - Allows custom input when needed
+- **Concise and distinct options** - Easy to scan and select
+- **Multiple choice by default** - Only use manual input when explicitly requested
+
+## What to Ask About
+
+Use your judgment to determine what's most relevant, but consider:
+
+- Technical stack and tooling preferences
+- Architecture and project structure
+- Database and state management
+- Authentication and security requirements
+- API design and validation patterns
+- Error handling and logging approach
+- Testing and deployment preferences
+- Performance and scalability concerns
+- Edge cases and constraint handling
+
+## Examples
+
+**Good - Multiple Choice:**
+
 ```
-What database would you like to use?
+Question: How should we handle authentication?
+Options:
+1. JWT tokens
+2. Session-based with cookies
+3. OAuth2 with third-party providers
+4. No authentication needed
+5. Other (let me specify)
+```
+
+**Avoid - Open-ended:**
+
+```
+How should we handle authentication?
 ```
 
 ## When Manual Input is Acceptable
-- The user explicitly requests to type a detailed response
-- The question requires a unique, complex answer that can't be templated
 
-Remember: The user prefers clicking over typing. Make selections easy and fast.
+- User explicitly requests to type a detailed response
+- Question requires unique, complex answer that can't be templated
+- Follow-up clarification on a custom "Other" response
+
+**Remember:** Make selections fast and easy. The goal is to gather maximum information with minimum typing.
