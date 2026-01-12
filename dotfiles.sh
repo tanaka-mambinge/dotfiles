@@ -25,19 +25,14 @@ ln -sf "$DOTFILES_DIR/zshrc" "$HOME/.zshrc"
 
 # OpenCode
 mkdir -p "$HOME/.config/opencode"
-ln -sf "$DOTFILES_DIR/ai-configs/opencode.json" \
-       "$HOME/.config/opencode/opencode.json"
-ln -sf "$DOTFILES_DIR/ai-configs/AGENTS.md" \
-       "$HOME/.config/opencode/AGENTS.md"
-ln -sf "$DOTFILES_DIR/ai-configs/command" \
-       "$HOME/.config/opencode/command"
-ln -sf "$DOTFILES_DIR/ai-configs/skill" \
-       "$HOME/.config/opencode/skill"
+ln -sfn "$DOTFILES_DIR/ai-configs/opencode.json" "$HOME/.config/opencode/opencode.json"
+ln -sfn "$DOTFILES_DIR/ai-configs/AGENTS.md" "$HOME/.config/opencode/AGENTS.md"
+ln -sfn "$DOTFILES_DIR/ai-configs/command" "$HOME/.config/opencode/command"
+ln -sfn "$DOTFILES_DIR/ai-configs/skill" "$HOME/.config/opencode/skill"
 
 # VSCode/GitHub Copilot
 mkdir -p "$HOME/.github"
-ln -sf "$DOTFILES_DIR/ai-configs/skill" \
-       "$HOME/.github/skills"
+ln -sfn "$DOTFILES_DIR/ai-configs/skill" "$HOME/.github/skills"
 
 echo "==> Done"
 echo "Restart your shell or run: source ~/.zshrc"
