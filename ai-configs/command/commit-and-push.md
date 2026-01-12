@@ -2,7 +2,7 @@
 description: Review recent changes
 ---
 
-Recent git commits:
-!`git log --oneline -10`
+Current git status: !`git status`
+Recent commits: !`git log --oneline -5`
 
-Review these changes and suggest any improvements.
+Create a commit based on the staged changes

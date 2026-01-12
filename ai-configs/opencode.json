@@ -121,8 +121,7 @@
     "bash": {
       "npm run build": "deny",
       "npm run dev": "deny",
-      "fastapi *": "deny",
-      "git *": "deny"
+      "fastapi *": "deny"
     }
   }
 }
