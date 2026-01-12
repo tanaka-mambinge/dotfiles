@@ -117,8 +117,6 @@ source $ZSH/oh-my-zsh.sh
 alias py="python3.12"
 alias nv="watch -n 1 -d nvidia-smi"
 alias dotfilesc="code ~/.dotfiles"
-alias agentsc="code ~/.config/opencode/agent"
-alias skillsc="code ~/.config/opencode/skill"
 alias tokens="cat ~/Code/github.tokens"
 alias vps="cd ~/keys"
 
