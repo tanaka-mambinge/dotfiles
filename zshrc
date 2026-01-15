@@ -287,3 +287,5 @@ export PHP_INI_SCAN_DIR="/home/tanaka/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 # bun
 export PATH="$HOME/.bun/bin:$PATH"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
