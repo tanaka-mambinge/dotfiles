@@ -27,6 +27,7 @@ During planning and task clarification, **always use the question tool** instead
 2. **Always include "Other (let me type)"**: The last option should always allow for custom input
 3. **Use for all planning questions**: Project structure, tech stack, preferences, ambiguous requirements, etc.
 4. **Format clearly**: Make options concise and distinct
+5. **No need to add a 'type your answer' option**: The question tool inherently allows for custom input if none of the options fit
 
 ### Example Usage
 
@@ -41,7 +42,6 @@ Options:
 2. MongoDB
 3. SQLite
 4. MySQL
-5. Other (let me specify)
 
 ```
 

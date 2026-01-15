@@ -119,9 +119,9 @@
   },
   "permission": {
     "bash": {
-      "npm run build": "deny",
-      "npm run dev": "deny",
-      "fastapi *": "deny"
+      "npm *": "deny",
+      "fastapi *": "deny",
+      "pip *": "deny"
     }
   }
 }
