@@ -213,7 +213,7 @@ android() {
     fi
 }
 
-warpc() {
+workspaces() {
   local DIR="$HOME/.local/share/warp-terminal/launch_configurations"
 
   [[ -d "$DIR" ]] || {
