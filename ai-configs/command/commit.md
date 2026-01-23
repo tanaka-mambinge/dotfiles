@@ -1,6 +1,5 @@
 ---
 description: Review recent changes
-model: github-copilot/gpt-5-mini
 ---
 
 Current git status: !`git status`
