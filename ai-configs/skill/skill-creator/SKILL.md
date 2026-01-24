@@ -69,6 +69,11 @@ Write concise, procedural instructions. Use sections for:
 
 Keep body content focused on core procedures. Move detailed reference material into `references/` files.
 
+## Scope Guidance
+
+- When defining **project-local** skills, tailor the instructions to the repository in question; calling out repo-specific patterns, services, or validation tools is encouraged so agents can follow the local conventions.
+- When defining **global** skills under `~/.config/opencode/skill`, keep them intentionally generic so they can apply across codebases. Avoid referencing project-specific file paths, services, or business logic unless the user explicitly asks for a specialized variation.
+
 ## Design Principles
 
 ### Concise First
