@@ -26,5 +26,22 @@
       "fastapi *": "deny",
       "pip *": "deny"
     }
+  },
+  "agent": {
+    "explore": {
+      "model": "github-copilot/gpt-5-mini"
+    },
+    "general": {
+      "model": "github-copilot/gpt-5-mini"
+    },
+    "title": {
+      "model": "github-copilot/gpt-5-mini"
+    },
+    "summary": {
+      "model": "github-copilot/gpt-5-mini"
+    },
+    "compaction": {
+      "model": "github-copilot/gpt-5-mini"
+    }
   }
 }
