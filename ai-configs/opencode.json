@@ -39,9 +39,6 @@
     },
     "summary": {
       "model": "github-copilot/gpt-5-mini"
-    },
-    "compaction": {
-      "model": "github-copilot/gpt-5-mini"
     }
   }
 }
