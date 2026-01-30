@@ -50,5 +50,9 @@
     "summary": {
       "model": "github-copilot/gpt-5-mini"
     }
+  },
+  "compaction": {
+    "auto": true,
+    "prune": true
   }
 }
