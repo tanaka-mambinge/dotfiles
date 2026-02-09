@@ -165,6 +165,11 @@ gpersonal() {
     git config user.email "tmambingez@gmail.com"
 }
 
+gwheels() {
+    git config user.name "tanaka-wheels"
+    git config user.email "tanaka@wheelsitnow.com"
+}
+
 jp() {
     if [ -z "$1" ]; then
         echo "Please select a conda environment:"
@@ -288,4 +293,5 @@ export PHP_INI_SCAN_DIR="/home/tanaka/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 # bun
 export PATH="$HOME/.bun/bin:$PATH"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export PATH="$HOME/.nvm/versions/node/$(nvm version default)/bin:$PATH"

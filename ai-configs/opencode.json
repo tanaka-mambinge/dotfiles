@@ -35,15 +35,14 @@
         "dart",
         "mcp-server"
       ],
-      "enabled": true,
+      "enabled": false,
       "environment": {}
     }
   },
   "permission": {
     "bash": {
-      "npm *": "deny",
-      "fastapi *": "deny",
-      "pip *": "deny"
+      "npm run *": "deny",
+      "fastapi *": "deny"
     }
   },
   "agent": {
