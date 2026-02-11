@@ -31,18 +31,15 @@
     },
     "dart-mcp-server": {
       "type": "local",
-      "command": [
-        "dart",
-        "mcp-server"
-      ],
+      "command": ["dart", "mcp-server"],
       "enabled": false,
       "environment": {}
     }
   },
   "permission": {
     "bash": {
-      "npm run *": "deny",
-      "fastapi *": "deny"
+      "npm run *": "allow",
+      "fastapi *": "allow"
     }
   },
   "agent": {
@@ -54,13 +51,15 @@
     },
     "title": {
       "model": "github-copilot/gpt-5-mini"
-    },
-    "summary": {
-      "model": "github-copilot/gpt-5-mini"
     }
   },
   "compaction": {
     "auto": true,
     "prune": true
+  },
+  "server": {
+    "port": 4096,
+    "hostname": "0.0.0.0",
+    "mdns": true
   }
 }

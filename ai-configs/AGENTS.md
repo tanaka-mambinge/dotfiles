@@ -34,7 +34,6 @@ During planning and task clarification, **always use the question tool** instead
 **Good:**
 
 ```
-
 Question: What database would you like to use?
 Options:
 
@@ -42,13 +41,10 @@ Options:
 2. MongoDB
 3. SQLite
 4. MySQL
-
 ```
 
 **Avoid:**
 
 ```
-
 What database would you like to use?
-
 ```

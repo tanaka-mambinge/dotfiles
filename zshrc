@@ -234,6 +234,39 @@ workspaces() {
   code "$DIR/$file"
 }
 
+devsvc() {
+  # label|systemd_unit
+  local services=(
+    "PostgreSQL (postgresql-17)|postgresql-17"
+    "MySQL (mysqld)|mysqld"
+    "MongoDB (mongod)|mongod"
+    "Typesense (typesense-server)|typesense-server"
+    "Valkey (valkey)|valkey"
+  )
+
+  command -v fzf >/dev/null 2>&1 || {
+    echo "fzf not found. Install with: sudo dnf install fzf"
+    return 1
+  }
+
+  local choice unit action
+  choice=$(printf "%s\n" "${services[@]}" | fzf --prompt="Service > " --height=40% --reverse)
+
+  [[ -n "$choice" ]] || return 0
+
+  unit="${choice##*|}"
+
+  action=$(printf "%s\n" start stop restart status | fzf --prompt="Action > " --height=20% --reverse)
+  [[ -n "$action" ]] || return 0
+
+  case "$action" in
+    start|stop|restart) sudo systemctl "$action" "$unit" ;;
+    status) systemctl status "$unit" --no-pager ;;
+    *) return 0 ;;
+  esac
+}
+
+
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
