@@ -8,11 +8,17 @@
     "browser": {
       "enabled": false,
       "type": "local",
-      "command": ["npx", "@browsermcp/mcp@latest"]
+      "command": [
+        "npx",
+        "@browsermcp/mcp@latest"
+      ]
     },
     "chrome-devtools": {
       "type": "local",
-      "command": ["npx", "chrome-devtools-mcp@latest"]
+      "command": [
+        "npx",
+        "chrome-devtools-mcp@latest"
+      ]
     },
     "mermaid-charts": {
       "enabled": false,
@@ -21,19 +27,37 @@
     },
     "mobile-mcp": {
       "type": "local",
-      "command": ["npx", "@mobilenext/mobile-mcp@latest"],
+      "command": [
+        "npx",
+        "@mobilenext/mobile-mcp@latest"
+      ],
       "enabled": false
     },
     "android-mcp": {
       "type": "local",
-      "command": ["/home/t12e/.local/bin/uvx", "android-mcp"],
+      "command": [
+        "/home/t12e/.local/bin/uvx",
+        "android-mcp"
+      ],
       "enabled": false
     },
     "dart-mcp-server": {
       "type": "local",
-      "command": ["dart", "mcp-server"],
+      "command": [
+        "dart",
+        "mcp-server"
+      ],
       "enabled": false,
       "environment": {}
+    },
+    "pencil": {
+      "command": [
+        "/home/t12e/.vscode/extensions/highagency.pencildev-0.6.23/out/mcp-server-linux-x64",
+        "--app",
+        "visual_studio_code"
+      ],
+      "enabled": true,
+      "type": "local"
     }
   },
   "permission": {

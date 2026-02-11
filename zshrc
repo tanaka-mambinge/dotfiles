@@ -117,6 +117,7 @@ source $ZSH/oh-my-zsh.sh
 alias py="python3.12"
 alias nv="watch -n 1 -d nvidia-smi"
 alias dotfilesc="code ~/.dotfiles"
+alias tokensc="code ~/Code/github.tokens"
 alias tokens="cat ~/Code/github.tokens"
 alias vps="cd ~/keys"
 
@@ -163,11 +164,6 @@ gwork() {
 gpersonal() {
     git config user.name "tanaka-mambinge"
     git config user.email "tmambingez@gmail.com"
-}
-
-gwheels() {
-    git config user.name "tanaka-wheels"
-    git config user.email "tanaka@wheelsitnow.com"
 }
 
 jp() {
@@ -242,6 +238,7 @@ devsvc() {
     "MongoDB (mongod)|mongod"
     "Typesense (typesense-server)|typesense-server"
     "Valkey (valkey)|valkey"
+    "OpenCode (opencode) [user]|--user opencode"
   )
 
   command -v fzf >/dev/null 2>&1 || {
@@ -259,9 +256,16 @@ devsvc() {
   action=$(printf "%s\n" start stop restart status | fzf --prompt="Action > " --height=20% --reverse)
   [[ -n "$action" ]] || return 0
 
+  # Check if it's a user service
+  local user_flag=""
+  if [[ "$unit" == --user* ]]; then
+    user_flag="--user"
+    unit="${unit#--user }"
+  fi
+
   case "$action" in
-    start|stop|restart) sudo systemctl "$action" "$unit" ;;
-    status) systemctl status "$unit" --no-pager ;;
+    start|stop|restart) systemctl $user_flag "$action" "$unit" ;;
+    status) systemctl $user_flag status "$unit" --no-pager ;;
     *) return 0 ;;
   esac
 }
