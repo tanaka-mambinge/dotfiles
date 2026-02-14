@@ -233,12 +233,12 @@ workspaces() {
 devsvc() {
   # label|systemd_unit
   local services=(
+    "OpenCode (opencode) [user]|--user opencode"
     "PostgreSQL (postgresql-17)|postgresql-17"
     "MySQL (mysqld)|mysqld"
     "MongoDB (mongod)|mongod"
     "Typesense (typesense-server)|typesense-server"
     "Valkey (valkey)|valkey"
-    "OpenCode (opencode) [user]|--user opencode"
   )
 
   command -v fzf >/dev/null 2>&1 || {

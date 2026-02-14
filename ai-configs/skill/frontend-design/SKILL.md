@@ -1,45 +1,78 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, or applications. Generates creative, polished code that avoids generic AI aesthetics.
+description: Use this when creating production-grade frontend interfaces that are realistic, usable, and context-appropriate. Use this skill when the user asks to build web components, pages, or applications. Generates polished, practical code that solves real problems without unnecessary complexity.
 license: Complete terms in LICENSE.txt
 ---
 
-This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
+This skill guides creation of **production-ready, realistic frontend interfaces** that users would actually deploy. Focus on solving real problems with clean, maintainable code that balances aesthetics with practicality.
 
 The user provides frontend requirements: a component, page, application, or interface to build. They may include context about the purpose, audience, or technical constraints.
 
 ## Design Thinking
 
-Before coding, understand the context and commit to a BOLD aesthetic direction:
+Before coding, understand the context and choose an **appropriate** aesthetic direction:
 
-- **Purpose**: What problem does this interface solve? Who uses it?
-- **Tone**: Pick an extreme: brutally minimal, maximalist chaos, retro-futuristic, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian, etc. There are so many flavors to choose from. Use these for inspiration but design one that is true to the aesthetic direction.
-- **Constraints**: Technical requirements (framework, performance, accessibility).
-- **Differentiation**: What makes this UNFORGETTABLE? What's the one thing someone will remember?
+- **Purpose**: What problem does this interface solve? Who uses it daily?
+- **Context**: What industry? What's the user's mental model? A fintech dashboard has different needs than a creative portfolio.
+- **Constraints**:
+  - Performance budgets and load times
+  - Accessibility requirements (WCAG compliance)
+  - Team maintainability (will other developers need to work on this?)
+  - Browser/device support needs
+- **Appropriate Distinctiveness**: Design should be memorable **within reason** for its context. A B2B SaaS tool needs professional polish, not "wow factor." A marketing site can be more expressive.
 
-**CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work - the key is intentionality, not intensity.
+**CRITICAL**: Match design complexity to the actual use case. Over-designing wastes time and creates maintenance burden. Under-designing looks unprofessional. Find the sweet spot.
 
-Then implement working code (HTML/CSS/JS, React, Vue, etc.) that is:
+## Real-World Design Principles
 
-- Production-grade and functional
-- Visually striking and memorable
-- Cohesive with a clear aesthetic point-of-view
-- Meticulously refined in every detail
+### Typography
 
-## Frontend Aesthetics Guidelines
+- **Body text**: Use highly readable fonts appropriate for the content length. System fonts (system-ui, -apple-system) are perfectly fine for UI text.
+- **Headings**: Can be more distinctive, but prioritize legibility over novelty.
+- **Font loading**: Consider performance. Use font-display: swap. Don't load 5+ web fonts for a simple page.
+- **Sizing**: Establish a clear type scale (1.25x or 1.5x ratio). Don't use 12 different font sizes.
 
-Focus on:
+### Color & Theme
 
-- **Typography**: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics; unexpected, characterful font choices. Pair a distinctive display font with a refined body font.
-- **Color & Theme**: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.
-- **Motion**: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions. Use scroll-triggering and hover states that surprise.
-- **Spatial Composition**: Unexpected layouts. Asymmetry. Overlap. Diagonal flow. Grid-breaking elements. Generous negative space OR controlled density.
-- **Backgrounds & Visual Details**: Create atmosphere and depth rather than defaulting to solid colors. Add contextual effects and textures that match the overall aesthetic. Apply creative forms like gradient meshes, noise textures, geometric patterns, layered transparencies, dramatic shadows, decorative borders, custom cursors, and grain overlays.
+- **Start with a purpose**: What emotion or function should the color serve?
+- **Accessibility first**: Ensure 4.5:1 contrast ratios for text. Test with color blindness simulators.
+- **Limit the palette**: 1-2 primary colors, 1-2 neutrals, 1 accent. More colors = more confusion.
+- **Avoid**: Neon-on-neon, ultra-low contrast "elegant" gray-on-white, 47 gradient stops.
 
-NEVER use generic AI-generated aesthetics like overused font families (Inter, Roboto, Arial, system fonts), cliched color schemes (particularly purple gradients on white backgrounds), predictable layouts and component patterns, and cookie-cutter design that lacks context-specific character.
+### Layout & Composition
 
-Interpret creatively and make unexpected choices that feel genuinely designed for the context. No design should be the same. Vary between light and dark themes, different fonts, different aesthetics. NEVER converge on common choices (Space Grotesk, for example) across generations.
+- **Follow conventions**: Users have expectations. Navigation at top, CTAs visible, forms with labels.
+- **Grid systems**: Use consistent spacing (4px, 8px, or 16px base units). Don't eyeball it.
+- **Whitespace**: Generous but purposeful. Not everything needs to "pop."
+- **Responsive by default**: Design mobile-first. Test breakpoints at 320px, 768px, 1024px, 1440px.
+- **Avoid**: Diagonal text for no reason, overlapping elements that hurt readability, "breaking the grid" just to be different.
 
-**IMPORTANT**: Match implementation complexity to the aesthetic vision. Maximalist designs need elaborate code with extensive animations and effects. Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details. Elegance comes from executing the vision well.
+### Motion & Animation
 
-Remember: Claude is capable of extraordinary creative work. Don't hold back, show what can truly be created when thinking outside the box and committing fully to a distinctive vision.
+- **Purposeful motion**: Use animation to guide attention, show state changes, or provide feedback.
+- **Performance**: Prefer transform and opacity animations. Avoid animating layout properties.
+- **Timing**: 200-400ms for micro-interactions. Respect prefers-reduced-motion.
+- **Avoid**: Loading animations that take 3 seconds, bouncing elements, parallax that causes motion sickness, animations on every single element.
+
+### Components & Patterns
+
+- **Use established patterns**: Users know how modals, dropdowns, and tabs work. Don't reinvent for novelty.
+- **Consistency**: Buttons should look like buttons across the entire app. Forms should behave predictably.
+- **State visibility**: Show loading, error, empty, and success states. Don't just design the happy path.
+- **Avoid**: Custom scrollbars that break usability, mystery meat navigation, form inputs without labels.
+
+## Anti-Patterns to Avoid
+
+**NEVER do these "fancy" things that hurt usability:**
+
+- Text that requires horizontal scrolling to read
+- Auto-playing videos or music
+- Hidden navigation (hamburger menus on desktop without reason)
+- Scroll hijacking that breaks native scrolling behavior
+- Modals that can't be closed with Escape key or outside click
+- Forms that validate only on submit
+- Images without alt text or proper aspect ratios
+- Custom cursors that make clicking harder
+- "Stunning" effects that tank performance on mid-tier devices
+
+**Remember**: The best design is invisible. Users should focus on their task, not your design. Create interfaces that are reliable, fast, and pleasant to use—not interfaces that win design awards but frustrate users.
