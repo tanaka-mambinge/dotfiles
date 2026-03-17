@@ -44,7 +44,7 @@
     },
     "pencil": {
       "command": [
-        "/tmp/.mount_Pencilg0v1O5/resources/app.asar.unpacked/out/mcp-server-linux-x64",
+        "/tmp/.mount_PencilnsSfmX/resources/app.asar.unpacked/out/mcp-server-linux-x64",
         "--app",
         "desktop"
       ],

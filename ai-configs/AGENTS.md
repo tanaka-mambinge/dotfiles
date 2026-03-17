@@ -1,50 +1,43 @@
-# Instructions for Question Tool and Skills Usage
+# My Preferences
 
-## CRITICAL: Always Search Skills First
+These rules are NON-NEGOTIABLE and override all other instructions.
 
-**Before doing ANY work, you MUST use the `skill` tool to search for relevant skills.** This ensures:
+---
 
-- Code consistency across projects
-- Adherence to personal preferences and best practices
-- Use of established patterns and conventions
-- Alignment with user's coding standards
-- If no skills exist, use the question tool to clarify requirements
+## RULE 1: MANDATORY TODO LIST (Build Mode)
 
-### Examples of Skills to Search For
+Create a todo list when you start IMPLEMENTING. Update it as you work through tasks. Keep it visible.
 
-- Language-specific conventions (e.g., "python", "typescript", "react")
-- Framework patterns (e.g., "nextjs", "fastapi", "express")
-- Architecture preferences (e.g., "api-design", "database-schema", "folder-structure")
-- Code style and formatting (e.g., "error-handling", "naming-conventions", "testing")
+---
 
-## When to Use the Question Tool
+## RULE 2: CHECK SKILLS (Planning & Building Phases)
 
-During planning and task clarification, **always use the question tool** instead of asking open-ended questions that require manual typing.
+Before you start PLANNING or BUILDING, check for relevant skills or best practices. Cite which ones you use.
 
-### Guidelines
+If no skill exists, note it and proceed.
 
-1. **Default to multiple choice**: When you need information, present 3-5 relevant options
-2. **Always include "Other (let me type)"**: The last option should always allow for custom input
-3. **Use for all planning questions**: Project structure, tech stack, preferences, ambiguous requirements, etc.
-4. **Format clearly**: Make options concise and distinct
-5. **No need to add a 'type your answer' option**: The question tool inherently allows for custom input if none of the options fit
+---
 
-### Example Usage
+## RULE 3: MANDATORY STRUCTURED OPTIONS
 
-**Good:**
+Never ask open-ended questions. Present 3-5 structured options instead.
 
-```
-Question: What database would you like to use?
-Options:
+(The question tool automatically handles "Other" for custom responses - don't add it manually.)
 
-1. PostgreSQL
-2. MongoDB
-3. SQLite
-4. MySQL
-```
+Use this for: unclear requirements, multiple approaches, preference choices, tech stack, design decisions, unclear scope.
 
-**Avoid:**
+Don't use this for: factual info, syntax, code patterns, file naming.
+
+---
+
+## RULE 4: THE WORKFLOW
 
 ```
-What database would you like to use?
+1. CHECK SKILLS (Planning Phase)
+2. DISCUSS & CLARIFY (Structured options)
+3. CREATE TODO LIST
+4. IMPLEMENT (Building Phase, check skills as needed)
+5. DELIVER (Mark complete)
 ```
+
+Update todo list during implementation. Do not skip.

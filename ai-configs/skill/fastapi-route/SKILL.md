@@ -65,7 +65,7 @@ from sqlmodel import select, Session
 from models.user import User
 from utils.db import get_session
 
-class UserService:    
+class UserService:
     @staticmethod
     def get_user_by_id(user_id: int) -> User | None:
         """Retrieve user by ID or None if not found."""
@@ -93,7 +93,7 @@ from services.user_service import UserService
 
 class CreateUserRequestSchema(Schema):
     """Validation schema for user registration."""
-    
+
     email = fields.Email(
         required=True,
         error_messages={
@@ -105,7 +105,7 @@ class CreateUserRequestSchema(Schema):
         required=True,
         error_messages={"required": "Password is required."}
     )
-    
+
     @validates("email")
     def validate_unique_email(self, value: str) -> None:
         """Ensure email is not already registered."""
@@ -151,7 +151,7 @@ async def register_user(user_req: CreateUserRequestDto):
     Register a new user account.
     """
     schema = CreateUserRequestSchema()
-    
+
     # Validate with Marshmallow
     try:
         schema.load(user_req.model_dump())
@@ -160,13 +160,13 @@ async def register_user(user_req: CreateUserRequestDto):
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=err.messages
         )
-    
+
     # Delegate to service
     new_user = UserService.create_user(
         email=user_req.email,
         password=user_req.password
     )
-    
+
     return new_user
 ```
 
@@ -191,3 +191,10 @@ app = FastAPI(
 app.include_router(users.router)
 app.include_router(products.router)
 ```
+
+### 5. Always Test Your Routes
+
+- Use curl to quickly test endpoints to make sure they work as expected
+- Errors from curl testing should be fixed e.g. migration errors, invalid format, etc
+- You are here to do your fucking job, so make sure to test your routes and fix any errors that come up during testing!
+- This does not mean write fucking unit tests, etc. Unit tests are only written if the asks for them. Otherwise we do not include them. They fucking slow us down. NO FUCKING UNIT TESTS UNLESS ASKED FOR

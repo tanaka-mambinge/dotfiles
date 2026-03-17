@@ -234,6 +234,7 @@ devsvc() {
   # label|systemd_unit
   local services=(
     "OpenCode (opencode) [user]|--user opencode"
+    "Tailscale Serve (opencode-tailscale)|opencode-tailscale"
     "PostgreSQL (postgresql-17)|postgresql-17"
     "MySQL (mysqld)|mysqld"
     "MongoDB (mongod)|mongod"
@@ -268,6 +269,68 @@ devsvc() {
     status) systemctl $user_flag status "$unit" --no-pager ;;
     *) return 0 ;;
   esac
+}
+
+update_discord() {
+  local tarball_path="$1"
+  local discord_dir="/opt/discord"
+  local tmp_dir="/tmp/discord-update-$$"
+  
+  # Validate input
+  [[ -z "$tarball_path" ]] && { echo "Usage: update_discord <path-to-tarball>"; return 1; }
+  [[ -f "$tarball_path" ]] || { echo "Error: File not found: $tarball_path"; return 1; }
+  [[ "$tarball_path" =~ \.tar\.gz$ ]] || { echo "Error: Expected .tar.gz file"; return 1; }
+  
+  # Check sudo access
+  sudo -n true 2>/dev/null || { echo "Error: sudo access required"; return 1; }
+  
+  echo "▶ Stopping Discord..."
+  pkill -f Discord 2>/dev/null || true
+  sleep 1
+  
+  echo "▶ Extracting $tarball_path..."
+  mkdir -p "$tmp_dir" || { echo "Error: Cannot create temp directory"; return 1; }
+  tar -xzf "$tarball_path" -C "$tmp_dir" --strip-components=0 2>/dev/null || \
+    tar -xzf "$tarball_path" -C "$tmp_dir" 2>/dev/null || \
+    { echo "Error: Failed to extract tarball"; rm -rf "$tmp_dir"; return 1; }
+  
+  # Find extracted Discord directory
+  local extracted_dir
+  extracted_dir=$(find "$tmp_dir" -maxdepth 1 -type d -name "Discord" | head -1)
+  [[ -z "$extracted_dir" ]] && { echo "Error: Discord directory not found in tarball"; rm -rf "$tmp_dir"; return 1; }
+  
+  # Get version from directory or tarball
+  local version
+  version=$(echo "$tarball_path" | grep -oP 'discord-\K[0-9.]+' || echo "unknown")
+  
+  # Backup old version
+  if [[ -d "$discord_dir" ]]; then
+    local backup_name="discord-backup-$(date +%Y%m%d-%H%M%S)"
+    echo "▶ Backing up current version to /opt/$backup_name..."
+    sudo mv "$discord_dir" "/opt/$backup_name" || { 
+      echo "Error: Failed to backup old version"; 
+      rm -rf "$tmp_dir"; 
+      return 1; 
+    }
+  fi
+  
+  echo "▶ Installing Discord $version..."
+  sudo mv "$extracted_dir" "$discord_dir" || { 
+    echo "Error: Failed to install new version"; 
+    rm -rf "$tmp_dir"; 
+    return 1; 
+  }
+  
+  echo "▶ Setting permissions..."
+  sudo chown -R root:root "$discord_dir"
+  sudo chmod 755 "$discord_dir"
+  
+  # Cleanup
+  rm -rf "$tmp_dir"
+  
+  echo "✓ Discord updated successfully to version $version"
+  echo "  Location: $discord_dir"
+  echo "  Backup: /opt/discord-backup-* (run 'sudo rm /opt/discord-backup-*' to clean up old backups)"
 }
 
 
