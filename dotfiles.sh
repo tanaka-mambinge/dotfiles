@@ -34,5 +34,10 @@ ln -sfn "$DOTFILES_DIR/ai-configs/skills" "$HOME/.config/opencode/skill"
 mkdir -p "$HOME/.agents"
 ln -sfn "$DOTFILES_DIR/ai-configs/skills" "$HOME/.agents/skills"
 
+# Systemd user services
+mkdir -p "$HOME/.config/systemd/user"
+ln -sf "$DOTFILES_DIR/services/opencode.service" "$HOME/.config/systemd/user/opencode.service"
+ln -sf "$DOTFILES_DIR/services/tailscale-opencode.service" "$HOME/.config/systemd/user/tailscale-opencode.service"
+
 echo "==> Done"
 echo "Restart your shell or run: source ~/.zshrc"

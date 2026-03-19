@@ -1,0 +1,13 @@
+[Unit]
+Description=Tailscale Serve for OpenCode
+After=network.target opencode.service
+Requires=opencode.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/tailscale serve 4096
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

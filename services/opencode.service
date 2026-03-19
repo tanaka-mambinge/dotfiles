@@ -1,0 +1,18 @@
+[Unit]
+Description=OpenCode Server
+After=network.target
+
+[Service]
+Type=simple
+User=t12e
+WorkingDirectory=/home/t12e
+
+Environment="PATH=/usr/local/bin:/usr/bin:/bin:/home/t12e/.local/bin:/home/t12e/.nvm/versions/node/v24.7.0/bin"
+
+ExecStart=/bin/bash -lc 'source ~/.nvm/nvm.sh && opencode serve --hostname 0.0.0.0 --port 4096'
+
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
