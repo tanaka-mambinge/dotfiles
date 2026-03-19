@@ -235,6 +235,7 @@ devsvc() {
   local services=(
     "OpenCode (opencode) [user]|--user opencode"
     "Tailscale Serve (opencode-tailscale)|opencode-tailscale"
+    "Docker (docker)|docker"
     "PostgreSQL (postgresql-17)|postgresql-17"
     "MySQL (mysqld)|mysqld"
     "MongoDB (mongod)|mongod"
