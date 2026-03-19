@@ -5,11 +5,6 @@
       "type": "remote",
       "url": "https://mcp.context7.com/mcp"
     },
-    "browser": {
-      "type": "local",
-      "command": ["npx", "@browsermcp/mcp@latest"],
-      "enabled": false
-    },
     "chrome-devtools": {
       "type": "local",
       "command": ["npx", "chrome-devtools-mcp@latest"],
