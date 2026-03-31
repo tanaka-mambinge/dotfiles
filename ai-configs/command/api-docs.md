@@ -1,6 +1,5 @@
 ---
 description: Generate API documentation for endpoints
-model: github-copilot/gpt-5-mini
 ---
 
 Generate API documentation for the endpoints in the routes file(s) specified.

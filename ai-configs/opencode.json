@@ -15,6 +15,12 @@
       "command": ["npx", "@mobilenext/mobile-mcp@latest"],
       "enabled": false
     },
+    "dart-mcp-server": {
+      "type": "local",
+      "command": ["dart", "mcp-server"],
+      "enabled": false,
+      "environment": {}
+    },
     "pencil": {
       "command": [
         "/tmp/.mount_PencilnsSfmX/resources/app.asar.unpacked/out/mcp-server-linux-x64",
