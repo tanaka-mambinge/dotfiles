@@ -1,58 +1,47 @@
 ---
 name: askpass
-description: Set up and use SUDO_ASKPASS helpers for non-interactive sudo operations. Use when automating commands that require sudo privileges, setting up passwordless sudo alternatives, or configuring sudo to work in CI/CD or headless environments.
+description: Use this skill whenever you need to execute commands requiring elevated sudo privileges. Automatically handles non-interactive sudo operations via SUDO_ASKPASS—no manual command composition needed. Apply for automated tasks, CI/CD pipelines, headless environments, and any scenario where interactive password prompts aren't feasible.
 ---
 
 # SUDO_ASKPASS Helper
 
-This skill provides a script and guidance for using SUDO_ASKPASS to enable sudo operations without interactive password prompts.
+Execute sudo commands non-interactively using the pre-configured SUDO_ASKPASS helper script.
 
 ## Overview
 
-SUDO_ASKPASS allows sudo to read passwords from a helper script instead of prompting interactively. This is essential for:
-- CI/CD pipelines requiring sudo
-- Automated scripts that need elevated privileges
-- Docker/container environments where TTY isn't available
-- Headless/automated server management
+SUDO_ASKPASS enables sudo operations without interactive password prompts by reading credentials from a helper script. Use this skill when:
 
-## Setup
+- Executing commands that require elevated privileges in a script
+- Running tasks in CI/CD pipelines
+- Working in headless/automated environments
+- Avoiding interactive TTY prompts
 
-The askpass script is bundled with this skill at `scripts/askpass.sh`.
+## Usage
 
-### Step 1: Set the password
+### Single Command
 
-Option 1 - Environment variable:
 ```bash
-export SUDO_PASSWORD="your_password_here"
+SUDO_ASKPASS="$HOME/.config/opencode/skill/askpass/scripts/askpass.sh" sudo -A command
 ```
 
-Option 2 - Password file:
-```bash
-echo "your_password_here" > "$HOME/.sudo_password"
-chmod 600 "$HOME/.sudo_password"
-```
+### In Scripts
 
-### Step 2: Use sudo with -A flag
+When executing multiple sudo commands, set the environment variable once:
 
 ```bash
+#!/bin/bash
+set -e
+
 export SUDO_ASKPASS="$HOME/.config/opencode/skill/askpass/scripts/askpass.sh"
+
 sudo -A apt-get update
+sudo -A apt-get install -y package
+sudo -A systemctl restart service
 ```
 
-## Quick Usage
+### Conditional sudo in Scripts
 
-```bash
-# One-time command
-SUDO_PASSWORD="mypass" SUDO_ASKPASS="$HOME/.config/opencode/skill/askpass/scripts/askpass.sh" sudo -A command
-
-# Session-wide
-export SUDO_ASKPASS="$HOME/.config/opencode/skill/askpass/scripts/askpass.sh"
-export SUDO_PASSWORD="mypass"
-sudo -A apt-get update
-sudo -A apt-get install package
-```
-
-## In Scripts
+Use only when necessary (already root vs. needs elevation):
 
 ```bash
 #!/bin/bash
@@ -71,33 +60,9 @@ $SUDO apt-get update
 $SUDO apt-get install -y package
 ```
 
-## Install TeX for PDF Export
-
-To export Jupyter notebooks to PDF:
-
-```bash
-export SUDO_ASKPASS="$HOME/.config/opencode/skill/askpass/scripts/askpass.sh"
-export SUDO_PASSWORD="your_password"
-sudo -A apt-get update
-sudo -A apt-get install -y texlive-xetex texlive-fonts-recommended texlive-plain-generic
-```
-
-## Security Considerations
-
-1. **Environment variables**: May be visible in process lists (`ps aux`) or logged
-2. **Password files**: Should have restricted permissions (`chmod 600`)
-3. **Scripts**: Avoid hardcoding passwords directly in scripts
-4. **CI/CD**: Use secrets management (GitHub Actions secrets, etc.)
-
-## Troubleshooting
-
-- **"sudo: no askpass program specified"**: Ensure `SUDO_ASKPASS` is exported
-- **"sudo: 3 incorrect password attempts"**: Check `SUDO_PASSWORD` or `~/.sudo_password` contents
-- **Permission denied**: Ensure script is executable (`chmod +x`)
-
 ## Reference
 
-The askpass script supports:
-- `SUDO_PASSWORD` environment variable
-- `~/.sudo_password` file
-- Falls back to exit 1 if neither is set
+The askpass helper reads credentials from:
+
+- `SUDO_PASSWORD` environment variable (preferred for immediate execution)
+- `~/.sudo_password` file (if environment variable not set)
