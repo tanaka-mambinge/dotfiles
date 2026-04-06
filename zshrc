@@ -120,6 +120,7 @@ alias dotfilesc="code ~/.dotfiles"
 alias tokensc="code ~/Code/github.tokens"
 alias tokens="cat ~/Code/github.tokens"
 alias vps="cd ~/keys"
+alias studio="/opt/android-studio/bin/studio.sh"
 
 reset_opencode() {
   PKG="opencode-ai"
@@ -367,14 +368,14 @@ eval "$(_SQLITE_UTILS_COMPLETE=zsh_source sqlite-utils)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/tanaka/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/t12e/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/tanaka/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/tanaka/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/t12e/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/t12e/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/tanaka/miniconda3/bin:$PATH"
+        export PATH="/home/t12e/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup

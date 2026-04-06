@@ -23,7 +23,7 @@
     },
     "pencil": {
       "command": [
-        "/tmp/.mount_PencilnsSfmX/resources/app.asar.unpacked/out/mcp-server-linux-x64",
+        "/tmp/.mount_Penciljo5Jy0/resources/app.asar.unpacked/out/mcp-server-linux-x64",
         "--app",
         "desktop"
       ],
@@ -35,6 +35,10 @@
     "bash": {
       "npm run *": "allow",
       "fastapi *": "allow"
+    },
+    "external_directory": {
+      "/tmp/**": "allow",
+      "~/Code/**": "allow"
     }
   },
   "agent": {
