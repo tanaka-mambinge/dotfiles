@@ -235,6 +235,7 @@ devsvc() {
   # label|systemd_unit
   local services=(
     "OpenCode (opencode) [user]|--user opencode"
+    "Vicinae (vicinae) [user]|--user vicinae"
     "Tailscale Serve (opencode-tailscale)|opencode-tailscale"
     "Docker (docker)|docker"
     "PostgreSQL (postgresql-17)|postgresql-17"
