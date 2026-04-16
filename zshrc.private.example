@@ -1,0 +1,80 @@
+# ~/.zshrc.private - Private Zsh Configuration
+# ============================================
+#
+# This file contains private configuration that should NOT be committed to git.
+# Copy this template to ~/.zshrc.private and customize with your real values:
+#
+#   cp ~/.dotfiles/zshrc.private.example ~/.zshrc.private
+#
+# The main ~/.zshrc automatically sources this file if it exists.
+
+
+# API Keys & Tokens
+# -----------------
+# Add your private API keys and tokens here.
+# Never commit this file to version control!
+
+# Example:
+# export SYNTHETIC_API_KEY="sk-xxxxxxxxxxxxxxxxxxxxxxxx"
+# export OPENAI_API_KEY="sk-xxxxxxxxxxxxxxxxxxxxxxxx"
+# export GITHUB_TOKEN="ghp_xxxxxxxxxxxxxxxxxxxxxxxx"
+# export ANTHROPIC_API_KEY="sk-ant-xxxxxxxxxxxxxxxx"
+
+
+# Work-specific Configuration
+# ---------------------------
+# Add work-specific environment variables, aliases, or functions.
+
+# Example:
+# export COMPANY_API_URL="https://internal.company.com/api"
+# alias vpn="sudo openvpn /etc/openvpn/client/work.ovpn"
+# alias deploy="./scripts/deploy-production.sh"
+
+
+# Personal Aliases
+# ----------------
+# Add personal aliases that don't belong in shared dotfiles.
+
+# Example:
+# alias homelab="ssh user@homelab.local"
+# alias myserver="ssh -i ~/.ssh/personal_key user@server.com"
+
+
+# Private Functions
+# -----------------
+# Define private functions that contain sensitive data.
+
+# Example:
+# secret_tool() {
+#   local token="$(cat ~/.config/secret/token)"
+#   curl -H "Authorization: Bearer $token" "$@"
+# }
+
+
+# Custom Paths
+# ------------
+# Add private directories to PATH without exposing structure.
+
+# Example:
+# export PATH="$HOME/.local/scripts:$PATH"
+# export PATH="$HOME/work-tools/bin:$PATH"
+
+
+# Machine-specific Settings
+# -------------------------
+# Settings that vary between machines.
+
+# Example:
+# export BROWSER="firefox"
+# export EDITOR="vim"
+# alias ls='ls --color=auto'
+
+
+# Development Tools
+# -----------------
+# Private development tool configurations.
+
+# Example:
+# export AWS_PROFILE="personal"
+# export AZURE_DEFAULT_SUBSCRIPTION="xxxx-xxxx-xxxx"
+# export GCP_PROJECT_ID="my-project-123456"
