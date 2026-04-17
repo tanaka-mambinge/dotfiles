@@ -209,7 +209,7 @@ venv() {
     fi
 }
 
-android() {
+devices() {
     local emulator
     emulator=$(emulator -list-avds | fzf --height 40% --reverse --border --prompt="Select an emulator: ")
     if [ -n "$emulator" ]; then
