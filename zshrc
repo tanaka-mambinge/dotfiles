@@ -121,7 +121,7 @@ alias tokensc="code ~/Code/github.tokens"
 alias tokens="cat ~/Code/github.tokens"
 alias vps="cd ~/keys"
 alias studio="/opt/android-studio/bin/studio.sh"
-alias workspacesc="code ~/.local/share/warp-terminal/launch_configurations"
+alias warpc="code ~/.local/share/warp-terminal/"
 alias synthetic='curl -s https://api.synthetic.new/v2/quotas \
   -H "Authorization: Bearer ${SYNTHETIC_API_KEY}" \
   | jq --color-output .'
