@@ -1,0 +1,13 @@
+[Unit]
+Description=Portless HTTPS Proxy (port 443)
+After=network.target
+
+[Service]
+Type=simple
+Environment="PATH=/home/t12e/.nvm/versions/node/v24.7.0/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/home/t12e/.nvm/versions/node/v24.7.0/bin/portless proxy start --foreground
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

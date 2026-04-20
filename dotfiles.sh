@@ -38,6 +38,8 @@ ln -sfn "$DOTFILES_DIR/ai-configs/skills" "$HOME/.agents/skills"
 mkdir -p "$HOME/.config/systemd/user"
 ln -sf "$DOTFILES_DIR/services/opencode.service" "$HOME/.config/systemd/user/opencode.service"
 ln -sf "$DOTFILES_DIR/services/tailscale-opencode.service" "$HOME/.config/systemd/user/tailscale-opencode.service"
+ln -sf "$DOTFILES_DIR/services/portless-proxy.service" "$HOME/.config/systemd/user/portless-proxy.service"
+ln -sf "$DOTFILES_DIR/services/maildev.service" "$HOME/.config/systemd/user/maildev.service"
 
 echo "==> Done"
 echo "Restart your shell or run: source ~/.zshrc"

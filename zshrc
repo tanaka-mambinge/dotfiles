@@ -242,6 +242,8 @@ devsvc() {
     "OpenCode (opencode) [user]|--user opencode"
     "Vicinae (vicinae) [user]|--user vicinae"
     "Tailscale Serve (opencode-tailscale)|opencode-tailscale"
+    "Portless Proxy (portless-proxy) [user]|--user portless-proxy"
+    "MailDev (maildev) [user]|--user maildev"
     "Docker (docker)|docker"
     "PostgreSQL (postgresql-17)|postgresql-17"
     "MySQL (mysqld)|mysqld"

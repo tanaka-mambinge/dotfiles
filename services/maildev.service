@@ -1,0 +1,15 @@
+[Unit]
+Description=MailDev with Portless (mail.localhost)
+After=network.target portless-proxy.service
+Requires=portless-proxy.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/t12e
+Environment="PATH=/home/t12e/.nvm/versions/node/v24.7.0/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/home/t12e/.nvm/versions/node/v24.7.0/bin/portless mail maildev
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
