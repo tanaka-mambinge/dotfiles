@@ -33,7 +33,8 @@
     },
     "external_directory": {
       "/tmp/**": "allow",
-      "~/Code/**": "allow"
+      "~/Code/**": "allow",
+      "~/Downloads/**": "allow"
     }
   },
   "agent": {
