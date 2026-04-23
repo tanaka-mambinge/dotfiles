@@ -38,10 +38,10 @@
   },
   "agent": {
     "explore": {
-      "model": "github-copilot/gpt-5-mini"
+      "model": "github-copilot/gpt-5.4-mini"
     },
     "general": {
-      "model": "github-copilot/gpt-5-mini"
+      "model": "github-copilot/gpt-5.4-mini"
     },
     "title": {
       "model": "github-copilot/gpt-5-mini"
