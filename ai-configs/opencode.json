@@ -18,7 +18,7 @@
     },
     "pencil": {
       "command": [
-        "/tmp/.mount_Penciljo5Jy0/resources/app.asar.unpacked/out/mcp-server-linux-x64",
+        "/tmp/.mount_PencilIAPRQe/resources/app.asar.unpacked/out/mcp-server-linux-x64",
         "--app",
         "desktop"
       ],
@@ -34,7 +34,8 @@
     "external_directory": {
       "/tmp/**": "allow",
       "~/Code/**": "allow",
-      "~/Downloads/**": "allow"
+      "~/Downloads/**": "allow",
+      "~/.dotfiles/ai-configs/skills/**": "allow"
     }
   },
   "compaction": {
