@@ -7,18 +7,24 @@
     },
     "chrome-devtools": {
       "type": "local",
-      "command": ["npx", "chrome-devtools-mcp@latest"],
+      "command": [
+        "npx",
+        "chrome-devtools-mcp@latest"
+      ],
       "enabled": false
     },
     "dart-mcp-server": {
       "type": "local",
-      "command": ["dart", "mcp-server"],
+      "command": [
+        "dart",
+        "mcp-server"
+      ],
       "enabled": false,
       "environment": {}
     },
     "pencil": {
       "command": [
-        "/tmp/.mount_PencilIAPRQe/resources/app.asar.unpacked/out/mcp-server-linux-x64",
+        "/tmp/.mount_Pencildgmx3P/resources/app.asar.unpacked/out/mcp-server-linux-x64",
         "--app",
         "desktop"
       ],
@@ -47,5 +53,7 @@
     "hostname": "0.0.0.0",
     "mdns": true
   },
-  "plugin": ["@warp-dot-dev/opencode-warp"]
+  "plugin": [
+    "@warp-dot-dev/opencode-warp"
+  ]
 }
