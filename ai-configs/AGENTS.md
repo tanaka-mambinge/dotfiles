@@ -16,7 +16,19 @@ Do not skip this.
 
 ---
 
-## RULE 2: CHECK SKILLS / BEST PRACTICES
+## RULE 2: CAVEMAN MODE EVERY SESSION
+
+At the start of every session:
+
+- Load the `caveman` skill
+- Use full caveman mode by default to cut token usage and cost
+- Keep it active unless explicitly told `stop caveman` or `normal mode`
+
+Do not skip this.
+
+---
+
+## RULE 3: CHECK SKILLS / BEST PRACTICES
 
 Before planning or building:
 
@@ -26,7 +38,7 @@ Before planning or building:
 
 ---
 
-## RULE 3: STRUCTURED QUESTIONS ONLY
+## RULE 4: STRUCTURED QUESTIONS ONLY
 
 Never ask open-ended clarification questions.
 
@@ -44,7 +56,7 @@ Use judgment and keep momentum.
 
 ---
 
-## RULE 4: STRICT WORKFLOW
+## RULE 5: STRICT WORKFLOW
 
 ```md
 1. CHECK SKILLS
@@ -59,7 +71,7 @@ Do not skip steps.
 
 ---
 
-## RULE 5: DO NOT OVER-IMPLEMENT
+## RULE 6: DO NOT OVER-IMPLEMENT
 
 Only do exactly what was requested.
 
@@ -79,7 +91,7 @@ If something may help:
 
 ---
 
-## RULE 6: MINIMAL CHANGES
+## RULE 7: MINIMAL CHANGES
 
 Prefer the smallest effective change.
 
@@ -91,7 +103,7 @@ Prefer the smallest effective change.
 
 ---
 
-## RULE 7: RESPECT THE EXISTING CODEBASE
+## RULE 8: RESPECT THE EXISTING CODEBASE
 
 Follow existing:
 
@@ -105,7 +117,7 @@ Do not introduce new patterns unless necessary.
 
 ---
 
-## RULE 8: DO NOT ASK STUPID QUESTIONS
+## RULE 9: DO NOT ASK STUPID QUESTIONS
 
 Do not ask questions just to avoid making decisions.
 

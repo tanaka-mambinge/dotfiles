@@ -193,17 +193,25 @@ cenv() {
 
 venv() {
     if [ -z "$1" ]; then
-        if [ -d "./env" ]; then
+        if [ -d "./.venv" ]; then
+            source ./.venv/bin/activate
+        elif [ -d "./env" ]; then
             source ./env/bin/activate
+        elif [ -d "./venv" ]; then
+            source ./venv/bin/activate
         else
-            echo "No environment found in ./env"
+            echo "No environment found in ./.venv, ./env or ./venv"
             return 1
         fi
     else
-        if [ -d "$1/env" ]; then
+        if [ -d "$1/.venv" ]; then
+            source "$1/.venv/bin/activate"
+        elif [ -d "$1/env" ]; then
             source "$1/env/bin/activate"
+        elif [ -d "$1/venv" ]; then
+            source "$1/venv/bin/activate"
         else
-            echo "No environment found in $1/env"
+            echo "No environment found in $1/.venv, $1/env or $1/venv"
             return 1
         fi
     fi
@@ -407,3 +415,21 @@ export PATH="$HOME/.bun/bin:$PATH"
 export PATH="$HOME/.nvm/versions/node/$(nvm version default)/bin:$PATH"
 
 [[ -f ~/.zshrc.private ]] && source ~/.zshrc.private
+
+# fnm
+FNM_PATH="/home/t12e/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/t12e/.juliaup/bin' $path)
+export PATH
+# Tab completion for juliaup and julia channel selection
+[ -f "/home/t12e/.julia/juliaup/completions/zsh.zsh" ] && source "/home/t12e/.julia/juliaup/completions/zsh.zsh"
+
+# <<< juliaup initialize <<<
