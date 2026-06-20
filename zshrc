@@ -81,7 +81,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting conda)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting conda sudo dnf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -351,13 +351,6 @@ update_discord() {
   echo "  Backup: /opt/discord-backup-* (run 'sudo rm /opt/discord-backup-*' to clean up old backups)"
 }
 
-
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # android studio
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 export ANDROID_HOME="$ANDROID_SDK_ROOT"
@@ -380,7 +373,7 @@ export WGPU_BACKEND=gl
 
 # sqlite utils shell completions
 export PATH="$HOME/.local/bin:$PATH"
-eval "$(_SQLITE_UTILS_COMPLETE=zsh_source sqlite-utils)"
+# eval "$(_SQLITE_UTILS_COMPLETE=zsh_source sqlite-utils)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -411,9 +404,6 @@ export PHP_INI_SCAN_DIR="/home/tanaka/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 # bun
 export PATH="$HOME/.bun/bin:$PATH"
 
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-export PATH="$HOME/.nvm/versions/node/$(nvm version default)/bin:$PATH"
-
 [[ -f ~/.zshrc.private ]] && source ~/.zshrc.private
 
 # fnm
@@ -422,14 +412,3 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "$(fnm env --shell zsh)"
 fi
-
-# >>> juliaup initialize >>>
-
-# !! Contents within this block are managed by juliaup !!
-
-path=('/home/t12e/.juliaup/bin' $path)
-export PATH
-# Tab completion for juliaup and julia channel selection
-[ -f "/home/t12e/.julia/juliaup/completions/zsh.zsh" ] && source "/home/t12e/.julia/juliaup/completions/zsh.zsh"
-
-# <<< juliaup initialize <<<
