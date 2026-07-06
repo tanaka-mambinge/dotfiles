@@ -1,8 +1,9 @@
 ---
-description: Review recent changes
+description: Commit staged changes only
 ---
 
-Current git status: !`git status`
-Recent commits: !`git log --oneline -5`
+First review the current git status by running `git status`.
+Then review the latest history by running `git log --oneline -5`.
 
-Create a commit based on the staged changes
+Create a commit from staged changes only.
+Do not push.

@@ -12,6 +12,9 @@ If you want to document different routes, specify them as arguments, e.g.:
 "routes/cars.py routes/auth.py"
 or "all" to document all endpoints in the routes/ directory
 
+Before writing the documentation, open and inspect the requested route file(s)
+directly so the output reflects the actual endpoint definitions.
+
 For each endpoint, provide the following in markdown format:
 
 ### {HTTP_METHOD} {endpoint_path}
@@ -46,4 +49,4 @@ For each endpoint, provide the following in markdown format:
 
 **Notes:** Any additional important information (auth required, file upload notes, etc.)
 
-Group endpoints by route file. Use @ routes/{filename} to read the route file content.
+Group endpoints by route file.

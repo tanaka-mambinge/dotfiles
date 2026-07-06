@@ -87,6 +87,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -116,6 +118,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias py="python3.12"
 alias nv="watch -n 1 -d nvidia-smi"
+alias ol="watch -n 1 -d ollama ps"
 alias dotfilesc="code ~/.dotfiles"
 alias tokensc="code ~/Code/github.tokens"
 alias tokens="cat ~/Code/github.tokens"
@@ -412,3 +415,7 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "$(fnm env --shell zsh)"
 fi
+
+# kimi-code
+export PATH="/home/t12e/.kimi-code/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

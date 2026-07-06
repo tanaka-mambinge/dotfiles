@@ -30,6 +30,13 @@ ln -sfn "$DOTFILES_DIR/ai-configs/AGENTS.md" "$HOME/.config/opencode/AGENTS.md"
 ln -sfn "$DOTFILES_DIR/ai-configs/command" "$HOME/.config/opencode/command"
 ln -sfn "$DOTFILES_DIR/ai-configs/skills" "$HOME/.config/opencode/skill"
 
+# Codex
+mkdir -p "$HOME/.codex/prompts"
+for prompt in "$DOTFILES_DIR"/ai-configs/command/*.md; do
+  [ -e "$prompt" ] || continue
+  ln -sfn "$prompt" "$HOME/.codex/prompts/$(basename "$prompt")"
+done
+
 # Agents
 mkdir -p "$HOME/.agents"
 ln -sfn "$DOTFILES_DIR/ai-configs/skills" "$HOME/.agents/skills"

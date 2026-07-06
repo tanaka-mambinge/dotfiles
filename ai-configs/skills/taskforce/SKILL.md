@@ -1,6 +1,6 @@
 ---
 name: taskforce
-description: "Logs completed development work (features, bug fixes, refactors, chores) as tasks in Task Force via the `taskforce` CLI, and manages task lifecycle (create, update, complete, list, show). Activates when the user asks to log/save/record/create a task for work just completed, says things like 'create a task for that', 'log this as done', 'add this to task force', 'save that as a task', 'mark that task complete', or asks to list/check/update tasks or projects in Task Force."
+description: "Logs completed development work (features, bug fixes, refactors, chores) as tasks in Task Force via the `taskforce` CLI, and manages task lifecycle (create, update, complete, list, show) plus task comments. Activates when the user asks to log/save/record/create a task for work just completed, says things like 'create a task for that', 'log this as done', 'add this to task force', 'save that as a task', 'mark that task complete', or asks to list/check/update tasks, comments, or projects in Task Force."
 metadata:
   domain: project-management
   triggers: task force, taskforce, log task, create task, mark complete
@@ -10,14 +10,14 @@ metadata:
 
 `taskforce` is a CLI client for Task Force (project/task management). Use it
 to record completed work as a task, and to create/update/complete/list/show
-tasks and projects.
+tasks, comments, and projects.
 
 ## When to apply
 
 - The user just finished a piece of work with you (a feature, bug fix,
   refactor, chore) and asks you to log/save/record it as a task.
-- The user asks you to create, update, complete, list, or show tasks or
-  projects in Task Force.
+- The user asks you to create, update, complete, list, or show tasks,
+  comments, or projects in Task Force.
 
 ## Refer to tasks and projects by name, not ID
 
@@ -119,9 +119,34 @@ Always check the exit code / stderr before parsing stdout as JSON.
 { "id": 1, "name": "Dev User", "email": "dev@mugonat.com" }
 ```
 
-`task list` and `project list` print a JSON **array** of the objects above.
-`task list` always returns the full result set across all pages, regardless
-of how many tasks exist.
+`task list`, `task comment list`, and `project list` print a JSON **array**
+of the objects above. `task list` always returns the full result set across
+all pages, regardless of how many tasks exist.
+
+### Comment object (`task comment list`, `task comment create`)
+
+```json
+{
+  "id": 55,
+  "body": "Looks good to ship.",
+  "author_name": "Dev User",
+  "is_team": true,
+  "parent_id": null,
+  "likes_count": 0,
+  "created_at": "2026-06-23T10:05:00Z",
+  "updated_at": "2026-06-23T10:05:00Z",
+  "replies": []
+}
+```
+
+`task comment create` returns:
+
+```json
+{
+  "comment": { "... comment object above ..." },
+  "local_id": "client-local-id-optional"
+}
+```
 
 ### Task status object (`task statuses`)
 
