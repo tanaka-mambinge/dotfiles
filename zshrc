@@ -401,6 +401,17 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="/home/tanaka/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/tanaka/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
+# Delete all Dev Tunnels after an explicit confirmation.
+dt_close() {
+  echo "Current Dev Tunnels:"
+  devtunnel list || return 1
+  echo
+  read -q "REPLY?Delete ALL Dev Tunnels? [y/N] "
+  echo
+  [[ "$REPLY" == "y" ]] || { echo "Cancelled."; return 1; }
+  devtunnel delete-all --force
+}
+
 # bun completions
 [ -s "/home/t12e/.bun/_bun" ] && source "/home/t12e/.bun/_bun"
 
@@ -419,3 +430,6 @@ fi
 # kimi-code
 export PATH="/home/t12e/.kimi-code/bin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+export PATH="/usr/local/go/bin:$PATH"
