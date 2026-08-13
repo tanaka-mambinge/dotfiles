@@ -154,6 +154,15 @@ reset_opencode() {
     return 1
   }
 
+  PKG_PATH="$(npm root -g)/$PKG"
+  if [ -f "$PKG_PATH/postinstall.mjs" ]; then
+    echo "▶ Running $PKG postinstall repair"
+    (cd "$PKG_PATH" && node postinstall.mjs) || {
+      echo "✖ Postinstall repair failed"
+      return 1
+    }
+  fi
+
   echo "▶ Verifying"
   if command -v opencode >/dev/null; then
     echo "✔ opencode fixed"
@@ -433,3 +442,39 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 export PATH="/usr/local/go/bin:$PATH"
+
+codexp() {
+  local config="$HOME/.codex/config.toml"
+  local models=""
+
+  if [[ "$1" == "deepseek" ]]; then
+    models="deepseek/deepseek-v4-pro\ndeepseek/deepseek-v4-flash"
+  elif [[ "$1" == "opencode" ]]; then
+    models=$(curl -sf https://opencode.ai/zen/go/v1/models 2>/dev/null | \
+      python3 -c "import sys,json; d=json.load(sys.stdin); print('\n'.join(f'opencode-go/{i[\"id\"]}' for i in d.get('data',[])))")
+  else
+    models=$( {
+      printf "deepseek/deepseek-v4-pro\ndeepseek/deepseek-v4-flash\n"
+      curl -sf https://opencode.ai/zen/go/v1/models 2>/dev/null | \
+        python3 -c "import sys,json; d=json.load(sys.stdin); print('\n'.join(f'opencode-go/{i[\"id\"]}' for i in d.get('data',[])))"
+    } 2>/dev/null )
+  fi
+
+  [[ -n "$models" ]] || { echo "No models found"; return 1; }
+  [[ ! -f "$config" ]] && { echo "Config not found: $config"; return 1; }
+
+  local choice
+  command -v fzf >/dev/null 2>&1 && \
+    choice=$(echo "$models" | fzf --prompt="Codex model > " --height=40% --reverse)
+
+  [[ -n "$choice" ]] || return 0
+
+  local provider="${choice%%/*}"
+  local model="${choice#*/}"
+
+  sed -i "s/^model = .*/model = \"$choice\"/" "$config"
+  sed -i "s/^model_provider = .*/model_provider = \"$provider\"/" "$config"
+
+  echo "▶ Switched to: $choice"
+  echo "  Restart Codex Desktop to apply."
+}

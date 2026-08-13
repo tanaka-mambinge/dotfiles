@@ -1,0 +1,4 @@
+interface:
+  display_name: "Stock Media"
+  short_description: "Search, preview, and download stock videos"
+  default_prompt: "Use $stock-media to find, preview, and download a suitable stock video."

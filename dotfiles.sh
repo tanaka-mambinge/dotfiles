@@ -37,6 +37,10 @@ for prompt in "$DOTFILES_DIR"/ai-configs/command/*.md; do
   ln -sfn "$prompt" "$HOME/.codex/prompts/$(basename "$prompt")"
 done
 
+# Codex pets
+mkdir -p "$HOME/.codex/pets"
+ln -sfn "$DOTFILES_DIR/codex/pets/spark" "$HOME/.codex/pets/spark"
+
 # Agents
 mkdir -p "$HOME/.agents"
 ln -sfn "$DOTFILES_DIR/ai-configs/skills" "$HOME/.agents/skills"
