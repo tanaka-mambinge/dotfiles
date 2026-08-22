@@ -478,3 +478,6 @@ codexp() {
   echo "▶ Switched to: $choice"
   echo "  Restart Codex Desktop to apply."
 }
+keys() {
+  cd ~/keys
+}
