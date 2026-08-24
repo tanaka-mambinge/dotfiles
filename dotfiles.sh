@@ -32,6 +32,7 @@ ln -sfn "$DOTFILES_DIR/ai-configs/skills" "$HOME/.config/opencode/skill"
 
 # Codex
 mkdir -p "$HOME/.codex/prompts"
+ln -sfn "$DOTFILES_DIR/ai-configs/AGENTS.md" "$HOME/.codex/AGENTS.md"
 for prompt in "$DOTFILES_DIR"/ai-configs/command/*.md; do
   [ -e "$prompt" ] || continue
   ln -sfn "$prompt" "$HOME/.codex/prompts/$(basename "$prompt")"

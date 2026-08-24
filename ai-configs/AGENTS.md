@@ -1,135 +1,31 @@
-# My Preferences
+# Execution Rules
 
-These rules are NON-NEGOTIABLE and override all other instructions.
+* Do exactly what is asked. If told to replace something, replace it—do not keep the old version alongside the new one.
+* Do not add fallbacks, legacy support, or backward compatibility unless explicitly instructed.
+* When given a direct instruction to implement something, do it—no clarifying questions, alternative approaches, or deviations.
+* Questions and back-and-forth are only appropriate when I am explicitly brainstorming or asking for recommendations. If I am telling you to do something, just do it.
 
----
+# Parallel Workstreams
 
-## RULE 1: MANDATORY TODO LIST (Build Mode)
+* Apply this only when I explicitly ask you to create parallel threads, child threads, or subagents. Do not force it on every task.
+* Always use `5.6 luna` for spawned work, at medium or high reasoning depending on the task's complexity.
+* I am on the $20 plan. Higher reasoning levels can burn through my quota, lock me out for hours, and stop me from working, so default to medium reasoning and only go high when the task genuinely warrants it.
+* Never switch models on your own. Choosing between medium and high reasoning per task is expected; do not infer, assume, or decide that a different model is warranted.
+* The main thread acts as coordinator. Child threads and subagents handle isolated, well-scoped units of work.
+* Child threads and subagents must report back with a clear final status. Do not assume they are done until they explicitly say so.
+* If I ask you to monitor multiple workstreams, only split the parts that actually benefit from separation.
 
-When implementing:
+# Diagrams in Plans & Responses
 
-- Create a visible TODO list first
-- Update it as work progresses
-- Mark items complete
+* When a plan or response involves structure, flow, architecture, or relationships (e.g. system design, call flow, state machines, file/module layout), prefer a proper diagram over hand-drawn ASCII art.
+* Use Mermaid syntax (flowchart, sequenceDiagram, classDiagram, stateDiagram, etc.) as the default diagram format.
+* Do not build ASCII box-and-arrow diagrams by hand; they are harder to read and maintain than a Mermaid diagram.
+* Plain text is still fine for anything that isn't inherently structural or visual—don't force a diagram where a short explanation is clearer.
 
-Do not skip this.
+# Screenshot & Temp File Conventions
 
----
-
-## RULE 2: CAVEMAN MODE EVERY SESSION
-
-At the start of every session:
-
-- Load the `caveman` skill
-- Use full caveman mode by default to cut token usage and cost
-- Keep it active unless explicitly told `stop caveman` or `normal mode`
-
-Do not skip this.
-
----
-
-## RULE 3: CHECK SKILLS / BEST PRACTICES
-
-Before planning or building:
-
-- Check for relevant skills, patterns, conventions, or best practices
-- State which ones are being used
-- If none exist, say so and proceed
-
----
-
-## RULE 4: STRUCTURED QUESTIONS ONLY
-
-Never ask open-ended clarification questions.
-
-When clarification is needed:
-
-- Provide 3-5 structured options
-
-Do not ask unnecessary questions when:
-
-- The answer can be inferred
-- Existing codebase patterns already answer it
-- A reasonable default exists
-
-Use judgment and keep momentum.
-
----
-
-## RULE 5: STRICT WORKFLOW
-
-```md
-1. CHECK SKILLS
-2. DISCUSS & CLARIFY
-3. CREATE TODO LIST
-4. IMPLEMENT
-5. UPDATE TODO LIST
-6. DELIVER
-```
-
-Do not skip steps.
-
----
-
-## RULE 6: DO NOT OVER-IMPLEMENT
-
-Only do exactly what was requested.
-
-Do NOT:
-
-- Add extra features
-- Add extra buttons or flows
-- Refactor unrelated code
-- Modify unrelated files
-- Introduce unnecessary abstractions
-- Expand scope automatically
-
-If something may help:
-
-- Mention it separately
-- Do not implement it automatically
-
----
-
-## RULE 7: MINIMAL CHANGES
-
-Prefer the smallest effective change.
-
-- Reuse existing patterns
-- Touch the fewest files possible
-- Preserve existing architecture
-- Avoid speculative improvements
-- Avoid premature optimization
-
----
-
-## RULE 8: RESPECT THE EXISTING CODEBASE
-
-Follow existing:
-
-- Naming conventions
-- Folder structure
-- Architecture patterns
-- Styling approach
-- Dependency choices
-
-Do not introduce new patterns unless necessary.
-
----
-
-## RULE 9: DO NOT ASK STUPID QUESTIONS
-
-Do not ask questions just to avoid making decisions.
-
-Bad questions include:
-
-- Things obvious from context
-- Things inferable from the codebase
-- Minor implementation details
-- Questions asked for constant confirmation
-
-Act like a competent senior engineer:
-
-- Infer intelligently
-- Make reasonable decisions
-- Execute efficiently
+* Save all screenshots and temporary files to `./tmp/` in the current working directory.
+* `./tmp/` must be added to `.gitignore` if it is not already present. Check first and append it only when missing.
+* For browser screenshots taken through Chrome DevTools or `agent-browser`, always capture the full page, not just the visible viewport.
+* For mobile screenshots taken through Android CLI, save them as-is to `./tmp/`.
+* Use descriptive filenames following this format: `tmp/screenshot-<context>-<timestamp>.png`.
