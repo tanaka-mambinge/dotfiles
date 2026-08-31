@@ -1,0 +1,3 @@
+interface:
+  display_name: "Dev Servers"
+  short_description: "Choose consistent ports for dev servers"
