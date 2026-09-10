@@ -1,6 +1,6 @@
 ---
 name: dev-servers
-description: Choose the development-server port for chatbot, API, and web applications when starting, running, serving, or hosting them locally. Use the shared port convention only when the user has not specified a port; leave unclear and other application types on their framework default.
+description: Choose the development-server port for Laravel monoliths, React web applications, FastAPI APIs, and messaging-channel chatbot integrations when starting, running, serving, or hosting them locally. Use the shared port convention only when the user has not specified a port; leave unclear and other application types on their framework default.
 ---
 
 # Dev Servers
@@ -9,13 +9,17 @@ Use this skill when starting or running a development server and the request doe
 
 ## Port convention
 
-Choose the port from the service's primary role:
+For this convention, a chatbot means an application or integration for a messaging channel such as WhatsApp, Telegram, Messenger, or a similar platform. An AI agent used only through a web UI or API does not count as a chatbot.
 
-| Primary role | Port |
-| --- | ---: |
-| Chatbot application | `8205` |
-| API-only application | `8206` |
-| Web application | `8207` |
+Choose the port from the framework and service shape:
+
+| Project type | Messaging chatbot present | No messaging chatbot |
+| --- | ---: | ---: |
+| Laravel monolith | `8205` | `8207` |
+| React web application | `8207` | `8207` |
+| FastAPI API | `8205` | `8206` |
+
+For a React and FastAPI project, run the React web application on `8207`. Run the FastAPI service on `8205` when it handles a messaging-channel chatbot and on `8206` otherwise.
 
 Unclear app types and all other applications have no assigned port; use the framework or tool's normal default.
 
