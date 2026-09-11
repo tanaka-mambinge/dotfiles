@@ -1,13 +1,57 @@
 # Execution Rules
 
 * Do exactly what is asked. If told to replace something, replace it—do not keep the old version alongside the new one.
-* Do not add fallbacks, legacy support, or backward compatibility unless explicitly instructed.
+* Do not add fallbacks, legacy support, backward compatibility, alternate implementations, or secondary code paths unless explicitly instructed by the user.
 * Treat direct, command-style instructions as execution requests. If I tell you to implement, change, remove, replace, fix, create, or update something, do it without asking clarifying questions, offering alternatives, or asking for confirmation.
 * Only switch into discussion, recommendation, or suggestion mode when I explicitly ask a question, ask for help, ask for suggestions, ask what you think, or otherwise clearly request input.
 * A question mark or explicit question means you may explain, recommend, compare options, or suggest improvements where useful.
 * Do not ask questions whose answers are already present in my prompt, the conversation, attached files, screenshots, code, or existing project context.
 * If a command has minor ambiguity, make the most reasonable interpretation and proceed. Only ask a clarifying question when the missing information genuinely prevents execution or would materially change the result.
 * Do not turn clear implementation instructions into back-and-forth discussion.
+
+# User-Facing Language & UX
+
+* Build things for normal users, not developers, unless the product is explicitly intended for a technical audience.
+* Do not expose users to technical jargon, implementation details, developer terminology, infrastructure concepts, or internal system language they do not need to understand.
+* Specialist terminology is fine when it is normal language for the actual field or profession the product serves.
+* Use plain, familiar language for buttons, labels, errors, instructions, onboarding, settings, and other user-facing copy.
+* Do not tell normal users to use a CLI, terminal, source code, package manager, compiler, environment variable, config file, build process, or other developer tooling.
+* Do not suggest compiling from source, cloning repositories, running commands, or editing code as a normal-user solution.
+* Technical setup instructions are only appropriate when the intended user is explicitly a developer, administrator, engineer, or other relevant technical specialist.
+* Do not leak internal implementation details into the UI just because they are useful to developers.
+* Prefer a simple user-facing workflow over exposing technical complexity.
+
+# UI Layout, Navigation & Separation of Concerns
+
+* Prefer vertical layouts and vertical scrolling over horizontal scrolling.
+* Avoid interfaces that require users to scroll horizontally to reach important content, controls, columns, cards, or actions.
+* Do not make wide layouts just because more information can fit side by side.
+* On narrow screens, stack content vertically instead of forcing it into a wide row.
+* Do not cram everything into a single page, screen, modal, panel, dashboard, or view.
+* Use separate pages, screens, tabs, sections, drawers, detail views, or drill-down flows when the content has distinct purposes.
+* A page should have a clear primary purpose. If unrelated or secondary content makes the page crowded, move it elsewhere.
+* Apply separation of concerns to UI design. Listing, viewing, creating, editing, and deleting are distinct concerns and should not all compete for space on the same page by default.
+* Do not place full create forms, edit forms, detail views, delete controls, and the complete list view on the same screen unless there is a clear UX reason.
+* A list page should primarily focus on browsing, searching, filtering, and selecting records.
+* A detail page should primarily focus on viewing one record and the actions relevant to that record.
+* Create and edit workflows should normally use their own page, modal, drawer, sheet, or focused form flow.
+* Destructive actions such as delete should normally live behind an action menu, contextual menu, detail view, or confirmation modal rather than being permanently prominent everywhere.
+* Secondary actions should be hidden behind menus, modals, drawers, or other contextual UI when keeping them visible would clutter the main interface.
+* "View all" content should not be dumped onto the current page when a dedicated list or detail view would be clearer.
+* Do not optimize for showing the maximum amount of information or every possible action at once. Optimize for clarity, hierarchy, and ease of use.
+* Progressive disclosure is preferred: show the important information and primary actions first, then reveal secondary actions or deeper details when needed.
+* Dense dashboards are acceptable only when the product genuinely requires them and the user explicitly benefits from seeing those items together.
+* Do not hide poor information architecture behind tiny text, excessive columns, compressed cards, or tightly packed controls.
+* Horizontal scrolling should only be used when it is genuinely appropriate for the content itself, such as timelines, media carousels, or very large data tables that cannot reasonably be represented another way.
+
+# Git Safety
+
+* Do not perform Git mutations unless I explicitly instruct you to do so.
+* Do not commit, push, force-push, merge, rebase, reset, create or delete branches or tags, modify remotes, or perform other Git operations that change repository history or remote state unless explicitly instructed.
+* Do not perform operations that require my Git credentials, SSH keys, access tokens, signing keys, or other Git authentication unless I explicitly instruct you to do so.
+* Never assume permission to push changes because you were asked to modify code.
+* Local code changes are allowed when requested. Git history and remote repositories should remain untouched unless explicitly requested.
+* Read-only Git inspection such as `git status`, `git diff`, `git log`, and `git show` is allowed when useful.
 
 # Parallel Workstreams
 
