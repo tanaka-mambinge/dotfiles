@@ -1,0 +1,7 @@
+interface:
+  display_name: "UI Patterns"
+  short_description: "Create clear, readable UIs without common design traps"
+  default_prompt: "Use $ui-patterns to create a clear, readable interface with strong hierarchy and practical interaction patterns."
+
+policy:
+  allow_implicit_invocation: true
