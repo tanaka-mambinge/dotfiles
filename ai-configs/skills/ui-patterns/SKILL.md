@@ -76,6 +76,30 @@ compete for attention and the screen becomes a blob of equally weighted
 things. When a screen cannot be scanned in a sensible order, reduce, group, or
 move content before adding more styling.
 
+## Use visual effects with restraint
+
+- Use shadows only to communicate a real layer, elevation, or interaction
+  state. Prefer one subtle, coherent shadow system over several overlapping
+  shadows with different colors, blur, or direction.
+- Avoid dramatic, muddy, glowing, floating, or otherwise arbitrary shadows that
+  make ordinary cards and controls look artificial.
+- Use gradients only when they serve a clear purpose such as brand expression,
+  depth, or a meaningful state. Avoid decorative gradients added to make an
+  empty surface feel exciting.
+- Never let a gradient compete with the content, create visual noise, or make
+  text and controls harder to read. Check the actual rendered contrast wherever
+  text sits over a gradient.
+- Avoid one-sided borders on rounded cards, panels, buttons, and containers
+  when the border is meant to outline the component. A lone top, bottom, left,
+  or right edge can look accidental and visually conflict with the rounded
+  shape.
+- When a component needs an outline, keep the border treatment continuous and
+  aligned with its radius. Use a one-sided border only when it communicates a
+  real structural divider, navigation boundary, accent edge, or component
+  state.
+- Do not add shadows, gradients, borders, or effects to every element. Effects
+  should reinforce hierarchy, not make every surface demand attention.
+
 ## Layout and information architecture
 
 - Prefer pages, sections, and focused detail views over putting a complete
@@ -113,13 +137,24 @@ not a collection of panels.
   product. Do not add a second font merely for decoration.
 - Reserve code fonts for developer-facing products or content that is actually
   code. Do not use monospace as a fashionable default for a consumer UI.
-- Use comfortable, readable letter spacing. Never create a sparse, stretched,
-  luxury-label look by applying wide tracking to ordinary headings or body
-  copy.
+- Use sufficient line-height and comfortable letter spacing for body text,
+  headings, labels, metadata, and helper text. Do not let lines feel cramped
+  or force readers to visually untangle dense blocks.
+- Keep letter spacing close to the font's natural rhythm. Never create a
+  sparse, stretched, luxury-label look by applying wide tracking to ordinary
+  headings or body copy. Tight tracking should also be used sparingly and
+  never as a fix for text that does not fit.
 - Establish a small, coherent type scale with clear differences between page
   titles, section headings, labels, body copy, metadata, and helper text.
 - Make hierarchy visible through size, weight, spacing, and placement before
   relying on color or decoration.
+- Keep page and hero headings concise. Long headlines often wrap awkwardly,
+  especially at narrow widths, and can make the entire composition feel off.
+  Rewrite or shorten the heading before shrinking the type, tightening the
+  tracking, or allowing several awkward lines. Put supporting detail in the
+  paragraph or the next section instead of overloading the headline.
+- Check important headings at their actual desktop and narrow-screen widths;
+  judge the line breaks, rag, balance, and relationship to nearby actions.
 - Check the rendered result at its real size. Text that technically exists but
   is faint, tiny, cramped, or low-contrast is not usable.
 
@@ -178,8 +213,11 @@ For a new or revised UI:
    preserving the existing palette unless a new one was requested.
 5. Remove decorative furniture, redundant panels, unnecessary numbers, and
    actions that do not help the user's task.
-6. Render at a wide and narrow viewport and inspect the actual visual result.
-7. Check contrast, reading order, overflow, interaction states, and whether a
+6. Check that line-height, letter spacing, heading length, borders, shadows,
+   gradients, and other effects support readability and hierarchy.
+7. Render at a wide and narrow viewport and inspect the actual visual result,
+   including hero and page-heading line breaks.
+8. Check contrast, reading order, overflow, interaction states, and whether a
    normal user can find the next useful action immediately.
 
 When reviewing an existing UI, report concrete problems with the affected
