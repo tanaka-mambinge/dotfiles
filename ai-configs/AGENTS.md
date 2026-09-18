@@ -85,3 +85,22 @@
 * For browser screenshots taken through Chrome DevTools or `agent-browser`, always capture the full page, not just the visible viewport.
 * For mobile screenshots taken through Android CLI, save them as-is to `./tmp/`.
 * Use descriptive filenames following this format: `tmp/screenshot-<context>-<timestamp>.png`.
+
+# Image Capture and Reading
+
+* Before reading or sending an image, create and use an optimized local derivative whenever the capture path allows it. Preserve the original capture in `./tmp/` for escalation, but do not send or read it by default, especially when the original is multi-megabyte PNG data.
+* Use a maximum-edge resize rather than forcing a square image. A geometry such as `1280x1280>` means: fit within a 1280-by-1280 box, preserve aspect ratio, and never enlarge a smaller image.
+* For `agent-browser`, configure the capture itself as JPEG quality 70 where possible so multi-megabyte PNGs are not produced for transmission. Prefer a WebP quality-70 derivative when the receiving tool accepts WebP, use `--if-changed` for repeated captures, and keep browser captures around a 1280-pixel maximum edge by default.
+* For Android CLI and hybrid CLI/device capture paths, capture the required native PNG, then create an optimized WebP quality-70 derivative before reading or sending it. The native PNG remains local for escalation only. Use a 1280-pixel maximum edge for general UI inspection and 1600 pixels when mobile text needs more detail.
+* For other images, use WebP quality 70 by default. Use PNG or lossless WebP for diagrams, line art, screenshots with tiny text, or pixel-accurate comparisons where lossy compression could obscure detail.
+* For full-page browser evidence, capture the full page as required, then read an optimized derivative or targeted crops instead of repeatedly sending the largest original image.
+* If the optimized image is unclear, do not upscale the entire image by default. Re-read only the relevant crop at higher resolution, using the preserved native/original capture when necessary. This override is permitted without additional confirmation for dense grids, small repeated items, tiny text, or any localized region that cannot be interpreted confidently.
+* Treat higher-resolution rereads as an exception. In normal cases, remain at the standard optimized resolutions because most UI state and layout information is sufficiently visible there.
+
+# Text-First UI Interaction and CLI Preferences
+
+* Prefer structured text and accessibility data over screenshots whenever it is available. Transmitting and reasoning over text is usually faster and less data-intensive than capturing, uploading, and reading images.
+* For Android CLI workflows, use `android layout`, UI text, element metadata, and other device inspection commands before taking a screenshot. Use screenshots for visual-only information, layout verification, rendering issues, or when structured inspection cannot answer the question.
+* For `agent-browser`, use accessibility snapshots, text extraction, semantic locators, DOM attributes, and page evaluation for navigation and interaction whenever they provide the needed information. Do not take a screenshot merely to locate or click ordinary text or controls.
+* Use screenshots when visual appearance matters, the accessibility/DOM representation is incomplete, an image or canvas is the subject, or text-first inspection is ambiguous. Apply the image-optimization rules before reading or sending those screenshots.
+* For Cloudflare tasks, prefer the Cloudflare CLI and structured command output over browser navigation. If authentication is required, pause and ask the user to authenticate through the CLI or its normal login flow; never request or expose credentials, tokens, or secrets in chat or command output.

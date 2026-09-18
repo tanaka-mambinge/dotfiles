@@ -1,227 +1,163 @@
 ---
 name: ui-patterns
 description: >-
-  Create or review clear, good-looking web and app interfaces for everyday users.
-  Use when choosing layout, hierarchy, typography, information density, or
-  interaction patterns, and when checking a UI for common visual and usability
-  anti-patterns. Complements ui-design by providing a focused clarity and
-  composition lens.
+  Create or review clear, distinctive, good-looking web and app interfaces for
+  everyday users. Use when choosing layout, hierarchy, typography, copy,
+  information density, visual direction, interaction patterns, motion, or
+  micro-interactions, and when checking a UI for common visual and usability
+  anti-patterns. Complements ui-design with a focused clarity, composition,
+  variety, and interaction lens.
 ---
 
 # UI Patterns
 
-Use this skill when the work changes how an interface looks, reads, or is
-organized. The goal is a UI that feels obvious to a normal person: important
-things are easy to find, the page has room to breathe without feeling empty,
-and deeper detail is available without putting everything in front of the user
-at once.
+Use this skill when the work changes how an interface looks, reads, feels, or
+is organized. The goal is a UI that is obvious to a normal person, visually
+intentional, and responsive to what they do. A first pass is not finished
+until it has gone through the mandatory enhancement pass below.
 
-This is a focused companion to `ui-design`, not a replacement for a full
-accessibility or implementation audit. Preserve existing project conventions
-when they serve the user; improve them when they create the problems below.
+This skill is a focused companion to `ui-design`, not a replacement for a
+full accessibility or implementation audit. Preserve existing project
+conventions during refinement when they serve the user; improve them when
+they create the problems below.
 
-## Choose the right degree of change
+## Non-negotiable quality floor
 
-Match the design process to the user's request:
+These rules apply on every task and cannot be diluted by optional references:
 
-- **Redesign, reimagine, or start over:** be willing to create a genuinely new
-  visual direction, layout, hierarchy, component treatment, and type system.
-  Do not keep an old interface's appearance or structure just because it is
-  familiar. Carry forward the product's useful content and behavior unless
-  the user asks to change those too.
-- **Improve, refine, polish, or clean up:** treat the current interface as the
-  visual baseline. Make targeted changes that solve the stated problems and
-  retain recognizable structure and conventions where they already work.
+- Establish the page's one primary purpose, audience, most important action,
+  and clear reading order before styling.
+- Make hierarchy deliberate. Important content and actions must be easy to
+  find; supporting detail should recede or use progressive disclosure.
+- Keep one clear narrative spine. Choose an F-shaped path for content-led
+  pages or a Z-shaped path for short landing pages when the content supports
+  it. Establish a left-side anchor for F layouts and let related information
+  branch from it. Do not alternate the dominant content from side to side or
+  create a zig-zag reading path merely for visual variety.
+- Use numbers only when they genuinely number an ordered list or are essential
+  product data. Never add decorative numbers to headings, labels, cards,
+  sections, or metadata. Never use `/` in rendered user-facing copy,
+  headings, labels, navigation, metadata, or decorative notation.
+- Give every section one unique job. Remove repeated claims, filler content,
+  decorative labels, unnecessary metadata, and extra calls to action. Do not
+  turn every group of ideas into a card grid or four-column band.
+- Keep descriptions, helper text, metadata, and actions subordinate to their
+  heading. Do not give supporting copy the same visual weight or level as the
+  primary heading.
+- Choose a coherent visual direction rather than assembling generic components.
+  Deliberately choose a shape language, surface or material language, control
+  language, composition language, and interaction language. Use layout, copy,
+  type, spacing, surfaces, controls, and effects as one connected system.
+- Do not let rectangular cards, rectangular buttons, flat surfaces, or
+  color-only hover states become the automatic answer. They are valid choices
+  when intentional, but an interface made entirely from those defaults must
+  be reconsidered or justified internally before delivery.
+- Pages and interactions must not feel inert, static, or flat. Include
+  purposeful motion and micro-interactions that clarify cause and effect,
+  continuity, state, or fitting delight. A color or opacity change alone is
+  not enough when a richer response would improve the experience.
+- When variations are requested, make genuinely different design directions.
+  Change the composition, layout, hierarchy, wording, copy tone, typography,
+  component relationships, spacing, surfaces, and motion language—not just
+  the palette or decoration. Never duplicate the first direction and reskin
+  it. Preserve the underlying goal and functionality unless behavioral
+  alternatives are requested.
+- Keep controls familiar and copy plain. Keep secondary and destructive
+  actions contextual instead of making every action equally prominent.
+- Verify real rendered behavior at wide and narrow sizes, including contrast,
+  overflow, focus, hover, pressed, loading, empty, success, and error states
+  where applicable. Respect reduced-motion preferences.
 
-In both cases, keep the existing color palette by default. Preserve its
-semantic roles and recognizable character while adjusting contrast or shades
-when needed. Change the palette only when the user explicitly requests a new
-one.
+## Mandatory workflow
 
-## Start with the user's view
+Use the agent's internal todo, step list, or equivalent progress tracker. Do
+not create a tracking document in the project. Track these items explicitly
+and mark them done only after they have been implemented or inspected:
 
-Before choosing components or styling, identify:
+- Intent and audience
+- Visual direction
+- Layout and hierarchy
+- Copy and typography
+- Surfaces and visual treatment
+- Interaction states
+- Motion and micro-interactions
+- Responsive and accessibility checks
+- Variation requirements, when applicable
+- Final rendered review
 
-- the page or screen's one primary purpose;
-- the user's most important action or decision;
-- what must be visible immediately and what belongs behind a detail view,
-  drawer, section, menu, or secondary page;
-- the audience, especially whether the product is for everyday users or
-  developers.
+Complete the workflow in this order:
 
-Make the first view answer “What is this?” and “What can I do here?” without
-making the user hunt through decorative UI or dense controls.
+1. Classify the request as refinement, redesign, review, or variations. For
+   refinement, treat the current interface as the visual baseline. For
+   redesign, a new visual system is encouraged. For explicit variations,
+   each direction may establish its own coherent palette and system.
+2. Inspect the request, existing UI, project conventions, available assets,
+   and target viewport. Define the purpose, audience, primary action, and
+   what can wait behind progressive disclosure.
+3. Resolve visual direction before committing to generic styling. If the
+   brief leaves it materially open, brainstorm a few coherent directions or
+   ask focused questions. Keep this contextual and open-ended; do not use a
+   fixed catalogue of style labels.
+   For variations, read
+   [references/variation-workflow.md](references/variation-workflow.md) now,
+   create a separate structural brief for every direction in the internal
+   tracker, and do this before implementing any direction.
+4. Create the initial design or review pass.
+5. Read [references/enhancement-pass.md](references/enhancement-pass.md) and
+   [references/creative-direction.md](references/creative-direction.md) and
+   [references/content-and-layout.md](references/content-and-layout.md).
+   Inspect the actual result against every section and use the references to
+   challenge generic geometry, surfaces, controls, content density, and
+   interaction patterns.
+   Reading the references is not completion; apply the improvements they
+   reveal. If a section does not apply, record why in the internal tracker.
+6. For variation requests, compare every rendered direction structurally and
+   visually before presenting them. If any pair converges, revise it; do not
+   present the set yet.
+7. Re-render after the enhancement pass. Fix missed hierarchy, copy, visual
+   quality, state, responsive, and interaction issues before delivery.
+8. Complete the final rendered review and only then hand off the result. For
+   variations, all directions must pass the comparison gates in the reference.
 
-## Create a clear visual hierarchy
+## Direction and composition
 
-Treat attention as a limited resource. Every screen should have a deliberate
-order of importance:
+- Prefer a clear path through the task over a wall of widgets, card piles,
+  unrelated metrics, or control-panel chrome. Use the fewest sections needed
+  to make the product understandable and persuasive.
+- Use vertical composition and natural scrolling. Stack content and controls
+  on narrow screens rather than forcing ordinary reading or forms to scroll
+  horizontally.
+- Give each region a job. Align related content, separate unrelated content
+  with space, and use detail views, drawers, sections, and menus for deeper
+  information or rarely used actions.
+- Use multi-column layouts only when the items are genuinely comparable,
+  equally important, concise, and improved by being seen together. A group of
+  four items is not a reason to create four columns.
+- Keep descriptions, metadata, and helper text visually subordinate to their
+  heading through scale, weight, spacing, placement, and contrast.
+- Preserve the existing palette and semantic roles during refinement unless a
+  new palette is requested. Distinct requested variations may use different
+  palettes when each remains coherent and usable.
 
-1. **Primary focus:** the page purpose and the one action or decision that
-   matters most right now.
-2. **Secondary focus:** the information or controls needed to support that
-   action.
-3. **Supporting detail:** context, history, settings, edge cases, and rarely
-   used actions that can be quieter or revealed later.
+## Motion and interaction character
 
-Guide the eye through this order with placement, scale, spacing, grouping,
-weight, and restrained color. Do not give every element the same contrast,
-size, border, shadow, saturation, or button treatment. If everything is loud,
-nothing is important.
+- Choose motion based on the component, trigger, spatial relationship, and
+  chosen visual direction. Vary origins, trajectories, pacing, staging, and
+  transition mechanisms so every interface does not use one canned recipe.
+- Use spatial or dimensional responses where they improve feedback: elements
+  may emerge from a meaningful origin, track an action, reshape around new
+  content, reveal or mask information, or hand attention to a related element.
+- Animate paired states consistently. Do not polish only hover while ignoring
+  focus or pressed feedback, or animate opening without considering closing.
+- Keep frequent interactions quick and unobtrusive. Do not delay input,
+  obscure content, create noise, or use motion instead of clear state design.
+- For detailed timing, easing, springs, gestures, performance debugging, or
+  reverse-engineering motion, use `ui-animation`.
 
-Use one clear starting point, meaningful whitespace between groups, and an
-obvious next step. Let secondary content recede without making it invisible.
-Avoid layouts where headings, cards, badges, icons, metrics, and actions all
-compete for attention and the screen becomes a blob of equally weighted
-things. When a screen cannot be scanned in a sensible order, reduce, group, or
-move content before adding more styling.
+## Final handoff
 
-## Use visual effects with restraint
-
-- Use shadows only to communicate a real layer, elevation, or interaction
-  state. Prefer one subtle, coherent shadow system over several overlapping
-  shadows with different colors, blur, or direction.
-- Avoid dramatic, muddy, glowing, floating, or otherwise arbitrary shadows that
-  make ordinary cards and controls look artificial.
-- Use gradients only when they serve a clear purpose such as brand expression,
-  depth, or a meaningful state. Avoid decorative gradients added to make an
-  empty surface feel exciting.
-- Never let a gradient compete with the content, create visual noise, or make
-  text and controls harder to read. Check the actual rendered contrast wherever
-  text sits over a gradient.
-- Avoid one-sided borders on rounded cards, panels, buttons, and containers
-  when the border is meant to outline the component. A lone top, bottom, left,
-  or right edge can look accidental and visually conflict with the rounded
-  shape.
-- When a component needs an outline, keep the border treatment continuous and
-  aligned with its radius. Use a one-sided border only when it communicates a
-  real structural divider, navigation boundary, accent edge, or component
-  state.
-- Do not add shadows, gradients, borders, or effects to every element. Effects
-  should reinforce hierarchy, not make every surface demand attention.
-
-## Layout and information architecture
-
-- Prefer pages, sections, and focused detail views over putting a complete
-  create form, list, detail view, and every action on one screen.
-- Use progressive disclosure. Show the necessary summary first, then let the
-  user drill down for history, configuration, explanations, or edge cases.
-- Favor an F-shaped reading flow: establish a strong left-aligned column and
-  let related content branch naturally to the right. Use the right side for
-  supporting context, status, or secondary actions rather than making every
-  element compete equally.
-- Prefer vertical composition and natural scrolling. On narrow screens,
-  stack content and controls rather than squeezing them into wide rows.
-- Use consistent alignment, spacing, and grouping to communicate relationships;
-  do not depend on borders and cards for every piece of structure.
-- Give each region a job and a clear relationship to the region before it.
-  Align related content, separate unrelated content with space, and avoid
-  isolated elements that float without context.
-- Treat horizontal scrolling as an exception. It is appropriate for content
-  that is intrinsically wide, such as a data table or timeline, or when the
-  user explicitly requests it. Do not make ordinary reading, navigation, or
-  forms horizontally scrollable.
-
-Avoid launch-control and control-panel aesthetics by default: no wall of
-widgets, excessive chrome, tile grids, card piles, or unrelated metrics shown
-only because there is room for them. Avoid box-heavy layouts that resemble a
-Windows 8 menu. The composition should feel like a clear path through a task,
-not a collection of panels.
-
-## Typography and hierarchy
-
-- Use at least two intentional, distinct font families when the product and
-  performance budget allow it: normally a highly readable sans-serif for UI
-  text plus a contrasting companion family for headings or emphasis. The
-  companion may be a serif or a second sans-serif when that better fits the
-  product. Do not add a second font merely for decoration.
-- Reserve code fonts for developer-facing products or content that is actually
-  code. Do not use monospace as a fashionable default for a consumer UI.
-- Use sufficient line-height and comfortable letter spacing for body text,
-  headings, labels, metadata, and helper text. Do not let lines feel cramped
-  or force readers to visually untangle dense blocks.
-- Keep letter spacing close to the font's natural rhythm. Never create a
-  sparse, stretched, luxury-label look by applying wide tracking to ordinary
-  headings or body copy. Tight tracking should also be used sparingly and
-  never as a fix for text that does not fit.
-- Establish a small, coherent type scale with clear differences between page
-  titles, section headings, labels, body copy, metadata, and helper text.
-- Make hierarchy visible through size, weight, spacing, and placement before
-  relying on color or decoration.
-- Keep page and hero headings concise. Long headlines often wrap awkwardly,
-  especially at narrow widths, and can make the entire composition feel off.
-  Rewrite or shorten the heading before shrinking the type, tightening the
-  tracking, or allowing several awkward lines. Put supporting detail in the
-  paragraph or the next section instead of overloading the headline.
-- Check important headings at their actual desktop and narrow-screen widths;
-  judge the line breaks, rag, balance, and relationship to nearby actions.
-- Check the rendered result at its real size. Text that technically exists but
-  is faint, tiny, cramped, or low-contrast is not usable.
-
-## Copy and controls for normal users
-
-- Use familiar, plain-language labels and explain unfamiliar concepts at the
-  point of need.
-- Avoid technical jargon in user-facing copy. Terms such as CLI, terminal,
-  repository, deployment, or API belong in developer tools or documentation,
-  not in a normal person's settings or onboarding flow unless the audience
-  genuinely needs them.
-- Number items sparingly. Do not number every card, section, feature, or step
-  as decoration.
-- Do not use “eyebrow text,” “section kicker,” “editorial index label,” or
-  similar design-language labels in the interface. Avoid decorative
-  slash-separated index notation such as “01 / Title” unless the product's
-  content or brand genuinely requires it.
-- Keep primary actions obvious and secondary actions quiet or contextual.
-  Hide destructive and rarely used actions behind an appropriate menu, detail
-  view, or confirmation step.
-- Use familiar controls and preserve their expected behavior. A button should
-  look actionable, a link should navigate, and a field should have a visible
-  label.
-
-## Contrast, responsive behavior, and states
-
-Visually inspect the interface rather than assuming the color tokens are safe.
-Confirm that:
-
-- body text, headings, labels, placeholder text, icons, borders, and disabled
-  states remain distinguishable from their backgrounds;
-- focus, hover, pressed, loading, empty, success, and error states are visible
-  where applicable;
-- important actions remain obvious in both light and dark themes when both are
-  supported;
-- content does not disappear under sticky headers, footers, or action bars;
-- text, buttons, cards, sidebars, and compact panels do not overflow or
-  overlap at narrow widths;
-- the layout still has a clear reading order when columns stack.
-
-Do not solve contrast problems by making every surface darker, brighter, or
-more saturated. Adjust the hierarchy and semantic color roles so emphasis is
-intentional.
-
-## Working checklist
-
-For a new or revised UI:
-
-1. Classify the request as a new design, redesign, or improvement so the
-   amount of visual change is intentional.
-2. Define the primary purpose, audience, primary action, and information that
-   can wait.
-3. Sketch the page hierarchy with a left-aligned F-shaped reading path and
-   explicit drill-down points.
-4. Choose typography, spacing, surfaces, and controls as one coherent system,
-   preserving the existing palette unless a new one was requested.
-5. Remove decorative furniture, redundant panels, unnecessary numbers, and
-   actions that do not help the user's task.
-6. Check that line-height, letter spacing, heading length, borders, shadows,
-   gradients, and other effects support readability and hierarchy.
-7. Render at a wide and narrow viewport and inspect the actual visual result,
-   including hero and page-heading line breaks.
-8. Check contrast, reading order, overflow, interaction states, and whether a
-   normal user can find the next useful action immediately.
-
-When reviewing an existing UI, report concrete problems with the affected
-screen or component and explain the user consequence. Do not redesign a
-working pattern merely to make it more novel during an improvement pass. When
-the user explicitly requests a redesign, a fresh visual system is encouraged;
-the existing palette remains the default constraint.
+Before delivery, confirm the internal tracker is complete, the rendered result
+has passed the enhancement reference, and any intentional exceptions are
+understood. Briefly summarize the visual direction, meaningful interaction or
+motion work, and deliberate exceptions without exposing unnecessary internal
+process detail.
