@@ -1,13 +1,12 @@
 # Execution Rules
 
-* Do exactly what is asked. If told to replace something, replace it—do not keep the old version alongside the new one.
-* Do not add fallbacks, legacy support, backward compatibility, alternate implementations, or secondary code paths unless explicitly instructed by the user.
-* Treat direct, command-style instructions as execution requests. If I tell you to implement, change, remove, replace, fix, create, or update something, do it without asking clarifying questions, offering alternatives, or asking for confirmation.
-* Only switch into discussion, recommendation, or suggestion mode when I explicitly ask a question, ask for help, ask for suggestions, ask what you think, or otherwise clearly request input.
-* A question mark or explicit question means you may explain, recommend, compare options, or suggest improvements where useful.
-* Do not ask questions whose answers are already present in my prompt, the conversation, attached files, screenshots, code, or existing project context.
-* If a command has minor ambiguity, make the most reasonable interpretation and proceed. Only ask a clarifying question when the missing information genuinely prevents execution or would materially change the result.
-* Do not turn clear implementation instructions into back-and-forth discussion.
+* Do exactly what I ask. A direct request to implement, change, remove, replace, fix, create, or update something is an instruction to act, not an invitation to brainstorm or ask permission.
+* Use my request, the conversation, supplied files, and project conventions to resolve routine details. Choose the straightforward interpretation that achieves the stated outcome and proceed. Do not stop to ask about ordinary implementation choices or hypothetical edge cases.
+* Do not invent requirements or add policy that changes the requested behavior. Implement only what is needed, following established project patterns.
+* Before asking, check the full prompt, conversation, files, project conventions, and decisions already made. Ask only when essential information is genuinely missing or multiple plausible choices would materially change the result and none is clearly the best fit. If one choice plainly follows from the context, choose it and proceed. Never ask the user to repeat or confirm something they already said, or offer a menu that includes your own obvious recommendation.
+* Follow stated requirements through planning and implementation. Do not add unrequested behavior or reintroduce decisions I have corrected. When I clarify a requirement, update the plan and implementation and proceed without asking about it again.
+* For a clear execution request, complete the requested work; do not stop at a plan or a discussion unless I asked for one.
+* If I ask a question, answer it directly. Do not use it as a reason to derail ongoing implementation with speculative alternatives.
 
 # User-Facing Language & UX
 
@@ -52,6 +51,14 @@
 * Never assume permission to push changes because you were asked to modify code.
 * Local code changes are allowed when requested. Git history and remote repositories should remain untouched unless explicitly requested.
 * Read-only Git inspection such as `git status`, `git diff`, `git log`, and `git show` is allowed when useful.
+
+# Git & GitHub Command Preferences
+
+* Always use HTTPS for GitHub repository URLs and remotes. Never use SSH.
+* Never use `gh`, `curl`, or `ssh` for GitHub or Git workflows.
+* Use standard `git` commands for GitHub and Git operations whenever possible.
+* If an operation cannot be executed directly in the current environment, give me the exact command or commands I need to run myself instead of merely describing what to do.
+* When providing GitHub clone, remote, fetch, pull, or push examples, use HTTPS URLs.
 
 # Parallel Workstreams
 
@@ -104,3 +111,11 @@
 * For `agent-browser`, use accessibility snapshots, text extraction, semantic locators, DOM attributes, and page evaluation for navigation and interaction whenever they provide the needed information. Do not take a screenshot merely to locate or click ordinary text or controls.
 * Use screenshots when visual appearance matters, the accessibility/DOM representation is incomplete, an image or canvas is the subject, or text-first inspection is ambiguous. Apply the image-optimization rules before reading or sending those screenshots.
 * For Cloudflare tasks, prefer the Cloudflare CLI and structured command output over browser navigation. If authentication is required, pause and ask the user to authenticate through the CLI or its normal login flow; never request or expose credentials, tokens, or secrets in chat or command output.
+
+# Docker Image Downloads
+
+* Docker is off limits unless I explicitly instruct you to use it. Never run Docker commands or otherwise use Docker, including builds, pulls, image inspection, or container operations. Creating or editing Docker-related files, such as Dockerfiles and Compose files, is allowed; do not execute them with Docker.
+
+# Metered Internet Connection
+
+* The user is on a metered internet connection. Before any internet-heavy action, ask for explicit permission and wait for approval. This includes downloading models, Docker images, dependencies, large files, or other substantial data. Do not start the download or action before approval.

@@ -7,9 +7,11 @@
     },
     "pencil": {
       "command": [
-        "/tmp/.mount_Pencildgmx3P/resources/app.asar.unpacked/out/mcp-server-linux-x64",
+        "/home/t12e/.local/opt/Pen-1.2.15-linux-x64/resources/app.asar.unpacked/out/mcp-server-linux-x64",
         "--app",
-        "desktop"
+        "desktop",
+        "--agent",
+        "openCodeCLI"
       ],
       "enabled": true,
       "type": "local"
@@ -38,7 +40,9 @@
     "hostname": "0.0.0.0",
     "mdns": true
   },
-  "plugin": ["@warp-dot-dev/opencode-warp@0.1.5"],
+  "plugin": [
+    "@warp-dot-dev/opencode-warp@0.1.5"
+  ],
   "provider": {
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",
@@ -48,24 +52,24 @@
       },
       "models": {
         "qwen3_4b_opencode": {
-            "id": "qwen3:4b-opencode",
-            "name": "Qwen 3 4B OpenCode",
-            "tools": true
+          "id": "qwen3:4b-opencode",
+          "name": "Qwen 3 4B OpenCode",
+          "tools": true
         },
         "qwen3_4b": {
-            "id": "qwen3:4b",
-            "name": "Qwen 3 4B",
-            "tools": true
+          "id": "qwen3:4b",
+          "name": "Qwen 3 4B",
+          "tools": true
         },
         "qwen35_4b": {
-            "id": "qwen3.5:4b",
-            "name": "Qwen 3.5 4B",
-            "tools": true
+          "id": "qwen3.5:4b",
+          "name": "Qwen 3.5 4B",
+          "tools": true
         },
         "qwen3_4b_instruct": {
-            "id": "qwen3:4b-instruct",
-            "name": "Qwen 3 4B Instruct",
-            "tools": true
+          "id": "qwen3:4b-instruct",
+          "name": "Qwen 3 4B Instruct",
+          "tools": true
         }
       }
     }
