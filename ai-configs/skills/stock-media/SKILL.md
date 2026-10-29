@@ -1,14 +1,20 @@
 ---
 name: stock-media
-description: Search Pexels for stock photos and videos, download candidate clips, and create or inspect 16-frame visual grids before using a video. Use when an agent needs stock media for ads, explainers, social content, presentations, or any workflow where a video should be visually screened before selection.
+description: Search configured stock providers through the Stock Media MCP, download selected images and videos for task outputs or inline chat, and review video storyboards; use the Pexels CLI for video workflows when the MCP is unavailable.
 ---
 
 # Stock Media
 
-Use the Docker development CLI below to discover and fetch Pexels videos. Do not use a host-installed executable or host keyring:
+## Use downloaded images in task outputs
+
+When the connected Stock Media MCP is available, use its search tool to review image previews and its `download_stock_media` tool for any selected image that will be used in the current task, a generated artifact, or an inline chat image. Fetch the file from the returned temporary `download_url` into the task workspace before it expires, then use the local file. Search previews are review-only copies, even when their resolution appears adequate. Keep the source, creator, and license details with the asset.
+
+The standalone CLI workflow below remains useful for Pexels video searches and downloads. Its image downloading limitation does not apply to the MCP workflow above.
+
+Use the installed `stock-media` command to discover and fetch Pexels videos:
 
 ```bash
-CLI="docker compose run --rm --service-ports stock-media"
+CLI="stock-media"
 ```
 
 Treat the generated 4×4 frame grid as a compact visual storyboard: inspect it with image viewing tools to understand the clip's subject, composition, lighting, camera movement, and temporal changes before committing to the video.
@@ -22,12 +28,6 @@ Treat the generated 4×4 frame grid as a compact visual storyboard: inspect it w
 5. View the grid and assess the sequence, not just one still frame.
 6. Return the chosen local video, grid, Pexels source URL, and creator attribution when available.
 
-To install the latest version directly from GitHub, run:
-
-```bash
-pip install --upgrade "git+https://github.com/tanaka-mambinge/stock-media-cli.git@main"
-```
-
 The CLI stores the Pexels API key in the operating system credential store. The
 CLI does not read API keys from environment variables or `.env` files.
 
@@ -40,7 +40,7 @@ After the user submits the form, the CLI stores the key in the OS credential
 store and retries the original operation. If the provider rejects the key, the
 same page reopens so the user can replace it without restarting the workflow.
 
-If the user explicitly asks to revoke credentials, use the Docker CLI:
+If the user explicitly asks to revoke credentials, use the CLI:
 
 ```bash
 ${CLI} keys revoke --platform pexels
@@ -59,8 +59,8 @@ ${CLI} search "abstract technology background" --orientation landscape --size la
 ${CLI} search "red cars" --media-type image --per-page 10
 ```
 
-Use `--media-type image` for Pexels photo metadata. Image downloading is not
-currently supported; downloads remain video-only.
+Use `--media-type image` for Pexels photo metadata. The standalone CLI supports
+video downloads only; use the connected MCP workflow above to download images.
 
 Useful search terms describe both the subject and intended use. For corporate footage, try `modern city skyline business`, `downtown office buildings`, `business district aerial`, or `technology office exterior`.
 

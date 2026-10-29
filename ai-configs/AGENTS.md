@@ -8,6 +8,13 @@
 * For a clear execution request, complete the requested work; do not stop at a plan or a discussion unless I asked for one.
 * If I ask a question, answer it directly. Do not use it as a reason to derail ongoing implementation with speculative alternatives.
 
+# Application Data and Initial Accounts
+
+* Do not put application user data in environment variables or `.env` files. This includes login email addresses, usernames, passwords, initial or bootstrap users, roles, and other application records.
+* When a task requires provisioning login or bootstrap data and the user has not chosen a method, ask which approach they want, such as a standalone script, framework seeder, idempotent application-initialization step, or another setup flow. Do not choose the approach based only on the technology stack or personal preference. If the user has already chosen, follow that choice without asking again.
+* Implement the selected approach using the project's language and framework conventions.
+* Manage provider credentials such as SMTP passwords and API keys through the project's established runtime secret-management practices; do not treat them as application user data.
+
 # User-Facing Language & UX
 
 * Build things for normal users, not developers, unless the product is explicitly intended for a technical audience.
@@ -115,7 +122,3 @@
 # Docker Image Downloads
 
 * Docker is off limits unless I explicitly instruct you to use it. Never run Docker commands or otherwise use Docker, including builds, pulls, image inspection, or container operations. Creating or editing Docker-related files, such as Dockerfiles and Compose files, is allowed; do not execute them with Docker.
-
-# Metered Internet Connection
-
-* The user is on a metered internet connection. Before any internet-heavy action, ask for explicit permission and wait for approval. This includes downloading models, Docker images, dependencies, large files, or other substantial data. Do not start the download or action before approval.

@@ -1,4 +1,5 @@
 __pycache__/
+tmp/
 
 # Private zsh configuration (template is zshrc.private.example)
 zshrc.private
