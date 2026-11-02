@@ -122,3 +122,9 @@
 # Docker Image Downloads
 
 * Docker is off limits unless I explicitly instruct you to use it. Never run Docker commands or otherwise use Docker, including builds, pulls, image inspection, or container operations. Creating or editing Docker-related files, such as Dockerfiles and Compose files, is allowed; do not execute them with Docker.
+
+# Android Signing Keystores
+
+* Keep Android signing `.keystore` files and any signing `.properties` files under `~/keys/<app>/`, never inside a repository.
+* Use release signing credentials only for production builds. Debug and dev builds use the platform's automatic debug signing and do not need release keys or properties.
+* When generating a signing key, generate only a `.keystore` file unless the user explicitly requests companion files. Store any requested signing properties alongside it under `~/keys/<app>/`; do not generate `.p12`, `.jks`, `.txt`, or exported secret files.
