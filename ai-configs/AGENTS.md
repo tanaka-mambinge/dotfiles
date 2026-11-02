@@ -128,3 +128,9 @@
 * Keep Android signing `.keystore` files and any signing `.properties` files under `~/keys/<app>/`, never inside a repository.
 * Use release signing credentials only for production builds. Debug and dev builds use the platform's automatic debug signing and do not need release keys or properties.
 * When generating a signing key, generate only a `.keystore` file unless the user explicitly requests companion files. Store any requested signing properties alongside it under `~/keys/<app>/`; do not generate `.p12`, `.jks`, `.txt`, or exported secret files.
+
+# Release Versioning
+
+* Use `major:`, `minor:`, `bug:`, or `fix:` commit types for versioned releases. `major:` increments the major version, `minor:` increments the minor version, and `bug:` or `fix:` increments the patch version.
+* Other commit types such as `ci:` do not request a release or version bump.
+* Only persist a new version or publish its GitHub Release after the production build and required checks succeed. A failed build leaves the last released version unchanged.
