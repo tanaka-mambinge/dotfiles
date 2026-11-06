@@ -71,10 +71,17 @@
 * If an operation cannot be executed directly in the current environment, give me the exact command or commands I need to run myself instead of merely describing what to do.
 * When providing GitHub clone, remote, fetch, pull, or push examples, use HTTPS URLs.
 
+# Browser Use
+
+* Use ChatGPT's in-app browser for browser tasks by default.
+* Do not launch a visible browser window or connect to the user's Chrome, Edge, or other browser profile/session unless the user explicitly asks you to.
+* Do not use `agent-browser` auto-connect or launch modes that open or attach to the user's browser.
+* If browser automation is needed and the in-app browser cannot perform a required operation, use `agent-browser` in its headless/non-window mode when available. Keep the work in the in-app browser whenever it supports the task.
+
 # Parallel Workstreams
 
 * Apply this only when I explicitly ask you to create parallel threads, child threads, or subagents. Do not force it on every task.
-* Always use `5.6 luna` for spawned work, at medium or high reasoning depending on the task's complexity.
+* Always use `6 luna` for spawned work, at high or max reasoning depending on the task's complexity.
 * I am on the $20 plan. Higher reasoning levels can burn through my quota, lock me out for hours, and stop me from working, so default to medium reasoning and only go high when the task genuinely warrants it.
 * Never switch models on your own. Choosing between medium and high reasoning per task is expected; do not infer, assume, or decide that a different model is warranted.
 * The main thread acts as coordinator. Child threads and subagents handle isolated, well-scoped units of work.
@@ -135,6 +142,6 @@
 
 # Release Versioning
 
-* Use `major:`, `minor:`, `bug:`, or `fix:` commit types for versioned releases. `major:` increments the major version, `minor:` increments the minor version, and `bug:` or `fix:` increments the patch version.
-* Other commit types such as `ci:` do not request a release or version bump.
-* Only persist a new version or publish its GitHub Release after the production build and required checks succeed. A failed build leaves the last released version unchanged.
+* Never bump an app's version, create a release tag, or publish a GitHub Release unless the user explicitly tells you to do so. A successful build or commit type does not authorize a version bump.
+* Once the user authorizes a version bump, use `major:`, `minor:`, `bug:`, or `fix:` commit types to determine its size: `major:` increments the major version, `minor:` increments the minor version, and `bug:` or `fix:` increments the patch version. CI-only commits, including `ci:` and CI-scoped commits such as `fix(ci):`, do not request a product version bump. Existing `feat:` commits are treated as minor updates for release history.
+* After explicit user authorization, persist the new version or publish its GitHub Release only after the production build and required checks succeed. A failed build leaves the last released version unchanged.

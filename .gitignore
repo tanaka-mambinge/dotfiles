@@ -3,3 +3,5 @@ tmp/
 
 # Private zsh configuration (template is zshrc.private.example)
 zshrc.private
+
+/ai-configs/skills/reanimate/scripts/node_modules/
